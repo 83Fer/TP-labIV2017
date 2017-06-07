@@ -1,0 +1,182 @@
+<!--<div class="jumbotron text-center">-->
+  <!--Slider-->
+<carousel >
+  <slide>
+    <img [src]="slide1" alt="First slide">
+    <div class="carousel-caption">
+      <h1>Calabresa Premium!!!</h1>
+    </div>
+  </slide>
+  <slide>
+    <img [src]="slide2" alt="Second slide">
+    <div class="carousel-caption">
+      <h1>Napolitana Gigante!!!</h1>
+    </div>
+  </slide>
+  <slide>
+    <img [src]="slide3" alt="Third slide">
+    <div class="carousel-caption">
+      <h1>Hacemos envios a todas partes!!</h1>
+    </div>
+  </slide>
+</carousel>
+ 
+
+
+<div id="about" class="container-fluid">
+  <div class="row">
+    <div class="col-sm-8">
+      <h2 class="text-center" style="color:red;">Sobre Nuestros Restaurants</h2>
+      <h4>bla bla..</h4> 
+      <p>bla bla..</p>
+      <button class="btn btn-default btn-lg">Leer mas..</button>
+    </div>
+    <div class="col-sm-6">
+      <li class="col-xs-4">
+        <img [src]="about1" alt="imagen" />
+      </li>
+      <li class="col-xs-4">
+        <img [src]="about2" alt="imagen" />
+      </li>
+      <li class="col-xs-4">
+        <img [src]="about3" alt="imagen" />
+      </li>
+    </div>
+  </div>
+</div>
+
+
+<!--Portfolio-->
+<div id="portfolio" class="container-fluid text-center bg-grey">
+  <h2>Especialidades de la casa</h2>
+  <h4>No te las pierdas</h4>
+  <div class="row text-center">
+    <div class="col-sm-4">
+      <div class="thumbnail">
+        <img [src]="promo1" alt="imagen" />
+        <p><strong>Muzza Grande</strong></p>
+       
+      </div>
+    </div>
+    <div class="col-sm-4">
+      <div class="thumbnail">
+        <img [src]="promo2" alt="imagen" />
+        <p><strong>Calabreza</strong></p>
+       
+      </div>
+    </div>
+    <div class="col-sm-4">
+      <div class="thumbnail">
+        <img [src]="promo3" alt="imagen" />
+        <p><strong>Pebete</strong></p>
+       
+      </div>
+    </div>
+</div>
+</div>
+
+
+
+<div id="menu" class="container-fluid">
+  <div class="text-center">
+    <h2>MENU</h2>
+    <h4>Choose a payment plan that works for you</h4>
+  </div>
+  <div class="row">
+    <div class="col-sm-4">
+      <div class="panel panel-default text-center">
+        <div class="panel-heading">
+          <h1>Promo Chica</h1>
+        </div>
+        <div class="panel-body">
+          <p><strong>1</strong> Muzza</p>
+          <p><strong>2</strong> Empanadas</p>
+          <p><strong>1</strong> Cerveza</p>
+        </div>
+        <div class="panel-footer">
+          <h3>$199</h3>
+          <h4>-%20</h4>
+          <button class="btn btn-lg">Pedir</button>
+        </div>
+      </div> 
+    </div> 
+    <div class="col-sm-4">
+      <div class="panel panel-default text-center">
+        <div class="panel-heading">
+          <h1>Promo Mediana</h1>
+        </div>
+        <div class="panel-body">
+          <p><strong>2</strong> Napo</p>
+          <p><strong>6</strong> Empanadas</p>
+          <p><strong>3</strong> Cervezas</p>
+          <p><strong>6</strong> Faina</p>
+        </div>
+        <div class="panel-footer">
+          <h3>$299</h3>
+          <h4>-%30</h4>
+          <button class="btn btn-lg">Pedir</button>
+        </div>
+      </div> 
+    </div> 
+   <div class="col-sm-4">
+      <div class="panel panel-default text-center">
+        <div class="panel-heading">
+          <h1>Promo Premium</h1>
+        </div>
+        <div class="panel-body">
+          <p><strong>4</strong> Napo + Muza</p>
+          <p><strong>12</strong> Empanadas</p>
+          <p><strong>6</strong> Cervezas</p>
+          <p><strong>12</strong> Faina</p>
+          <p><strong>1kg</strong> Helado</p>
+        </div>
+        <div class="panel-footer">
+          <h3>$499</h3>
+          <h4>per month</h4>
+          <button class="btn btn-lg">Pedir</button>
+        </div>
+      </div> 
+    </div> 
+  </div>
+</div>
+
+<div id="contact" class="container-fluid bg-grey">
+  <h2 class="text-center">CONTACTO</h2>
+  <div class="row">
+    <div class="col-sm-5">
+      <p>Contactanos las 24 hr.</p>
+      <p><span class="glyphicon glyphicon-map-marker"></span> Bernal, BsAs</p>
+      <p><span class="glyphicon glyphicon-phone"></span> +00 1515151515</p>
+      <p><span class="glyphicon glyphicon-envelope"></span> pizzeria@gmail.com</p> 
+    </div>
+    <div class="col-sm-7">
+      <div class="row">
+        <div class="col-sm-6 form-group">
+          <input class="form-control" id="name" name="name" placeholder="Nombre" type="text" required>
+        </div>
+        <div class="col-sm-6 form-group">
+          <input class="form-control" id="email" name="email" placeholder="Email" type="email" required>
+        </div>
+      </div>
+      <textarea class="form-control" id="comments" name="comments" placeholder="Comentario" rows="5"></textarea><br>
+      <div class="row">
+        <div class="col-sm-12 form-group">
+          <button class="btn btn-default pull-right" type="submit">Enviar</button>
+        </div>
+      </div> 
+    </div>
+  </div>
+</div>
+
+<!-- Add Google Maps -->
+<!--<div id="googleMap" style="height:400px;width:100%;"></div>
+<script>
+function myMap() {
+var myCenter = new google.maps.LatLng(41.878114, -87.629798);
+var mapProp = {center:myCenter, zoom:12, scrollwheel:false, draggable:false, mapTypeId:google.maps.MapTypeId.ROADMAP};
+var map = new google.maps.Map(document.getElementById("googleMap"),mapProp);
+var marker = new google.maps.Marker({position:myCenter});
+marker.setMap(map);
+}-->
+<!--</script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBu-916DdpKAjTmJNIgngS6HL_kDIKU0aU&callback=myMap"></script>-->

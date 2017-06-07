@@ -1,3 +1,111 @@
-<h1>
-  {{title}}
-</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Pizzeria TP</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60">
+
+
+<!--Navegacion-->
+  <nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span> 
+      </button>
+      <a class="navbar-brand" href="#">INICIO</a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#about">SOBRE</a></li>
+        <li><a href="#portfolio">PORTFOLIO</a></li>
+        <li><a href="#menu">MENU</a></li>
+        <li><a href="#contact">CONTACTO</a></li>
+
+          <!--Dropdown Administrador-->
+        <li dropdown class="dropdown pointer"><a dropdownToggle class="dropdown-toggle">
+          ADMINISTRADOR<span class="caret"></span></a>
+          <ul dropdwnMenu class="dropdown-menu" >
+            <li><a href="#contact" style="background-color:orange">ABM Empleados</a></li>
+            <li><a href="#portfolio" style="background-color:orange" >ABM Encargados</a></li>
+          </ul>
+        </li>
+
+        <li dropdown class="dropdown pointer"><a dropdownToggle class="dropdown-toggle">
+          ENCARGADO<span class="caret"></span></a>
+          <ul dropdwnMenu class="dropdown-menu" >
+            <li><a href="#contact" style="background-color:orange">ABM Lista de Platos</a></li>
+          </ul>
+        </li>
+
+
+        <li><a href="#contact">PERFIL</a></li>
+        <li><a data-toggle="modal" data-target="#miLogin">Login</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<app-inicio>Loading...</app-inicio>
+
+<!--<button type="button" class="btn btn-primary" (click)="parentModal.show()">Open parent modal</button>
+<div class="modal fade" bsModal #parentModal="bs-modal" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title pull-left">First modal</h4>
+        <button type="button" class="close pull-right" aria-label="Close" (click)="parentModal.hide()">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <button type="button" class="btn btn-primary" (click)="childModal.show()">Open second modal</button>
+      </div>
+    </div>
+  </div>
+</div>
+ 
+<div class="modal fade" bsModal #childModal="bs-modal" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title pull-left">Second modal</h4>
+        <button type="button" class="close pull-right" aria-label="Close" (click)="childModal.hide()">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        This is static modal <br>
+        <button type="button" class="btn btn-primary" (click)="thirdModal.show()">Open third modal</button>
+      </div>
+    </div>
+  </div>
+</div>
+ 
+<div class="modal fade" bsModal #thirdModal="bs-modal" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title pull-left">Third modal</h4>
+        <button type="button" class="close pull-right" aria-label="Close" (click)="thirdModal.hide()">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        This is static modal <br>
+        Click <b>&times;</b> to close modal.
+      </div>
+    </div>
+  </div>
+</div>-->
+
+</body>
+</html>
