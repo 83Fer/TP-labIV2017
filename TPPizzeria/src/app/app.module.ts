@@ -10,12 +10,24 @@ import { ModalModule } from 'ngx-bootstrap/modal';
 import { AppComponent } from './app.component';
 import { InicioComponent } from '../pages/inicio/inicio.component';
 import { LoginComponent } from '../pages/login/login.component';
+import { AbmUsuarioComponent } from '../pages/abm-usuario/abm-usuario.component';
+import { ListaUsuarioComponent } from '../pages/lista-usuario/lista-usuario.component';
+import { AbmSucursalesComponent } from '../pages/abm-sucursales/abm-sucursales.component';
+import { AbmReservasComponent } from '../pages/abm-reservas/abm-reservas.component';
+import { AbmPedidosComponent } from '../pages/abm-pedidos/abm-pedidos.component';
+import { AbmPlatosComponent } from '../pages/abm-platos/abm-platos.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     InicioComponent,
-    LoginComponent
+    LoginComponent,
+    AbmUsuarioComponent,
+    ListaUsuarioComponent,
+    AbmSucursalesComponent,
+    AbmReservasComponent,
+    AbmPedidosComponent,
+    AbmPlatosComponent
   ],
   imports: [
     ModalModule.forRoot(),

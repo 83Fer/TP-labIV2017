@@ -19,6 +19,7 @@ export class InicioComponent implements OnInit {
   about2:string= '/assets/images/about-img-2.jpg';
   about3:string= '/assets/images/about-img-3.jpg';
 
+  menu1:string= '/assets/images/menu-img-1.jpg';
 
   constructor() { }
 

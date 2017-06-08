@@ -1,0 +1,29 @@
+<h1>Alta de Usuario</h1>
+<form action="" method="">
+  <fieldset >
+    <legend>Datos de Usuario</legend>
+    <label for="">Nombre y Apellido</label>
+    <input type="text" [(ngModel)]="nomApell" [ngModelOptions]="{standalone: true}">
+    <label for="">Telefono</label>
+    <input type="text" [(ngModel)]="telefono" [ngModelOptions]="{standalone: true}">
+    <label for="">Email</label>
+    <input type="text" [(ngModel)]="email" [ngModelOptions]="{standalone: true}">
+    <label for="">Password</label>
+    <input type="text" [(ngModel)]="fecIngreso" [ngModelOptions]="{standalone: true}">
+    <label for="">Repetir Password</label>
+    <input type="text" [(ngModel)]="foto" [ngModelOptions]="{standalone: true}">
+    <label for="">Sexo</label>
+    <select name="" id="" [(ngModel)]="sexo" [ngModelOptions]="{standalone: true}">
+      <option value="No especificado" >No especificado</option>
+      <option value="Femenino"  >Femenino</option>
+      <option value="Masculino" >Masculino</option>
+    </select>
+    <label for="">Direccion</label>
+    <input type="text" [(ngModel)]="direccion" [ngModelOptions]="{standalone: true}">
+    <label for="">Localidad</label>
+    <input type="text" [(ngModel)]="localidad" [ngModelOptions]="{standalone: true}">
+    <!--<textarea></textarea>-->
+    <input type="submit" value="Agregar" (click)="AgregarCliente()" /><br>
+  </fieldset>
+</form>
+<hr/>

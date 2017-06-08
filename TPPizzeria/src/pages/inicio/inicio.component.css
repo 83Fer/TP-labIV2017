@@ -144,3 +144,88 @@
     color: #fff;
 }
 
+/*=======================================================
+      PIZZA MENU
+========================================================*/
+.pizza-menu {
+	background: #f3f3f3;
+}
+.pizza-menu.tri-white-top:before {
+	/*background: url(../images/tri-promo-top-light.png) repeat-x;*/
+}
+.pizza-menu.tri-white-bottom:after {
+	/*background: url(../images/tri-promo-bottom-light.png) repeat-x;*/
+}
+.pizza-menu .pizza-flavers .menu-img {
+	display: inline-block;
+	width: 70px;
+	height: 70px;
+	border-radius: 50%;
+	position: relative;
+	overflow: hidden;
+	margin-right: 10px;
+	margin-top: 18px;
+}
+.pizza-menu .media-body {
+	padding: 30px 0;
+	border-bottom: 1px dashed #666666;
+}
+.pizza-menu .pizza-flavers li {
+	width: 100%;
+}
+.pizza-menu .pizza-flavers li:nth-child(1) .media-body {
+	border-top: 1px dashed #666666;
+}
+.pizza-menu .pizza-flavers h5 {
+	font-size: 18px;
+	margin-bottom: 5px;
+	margin-top: 0px;
+}
+.pizza-menu .pizza-flavers .menu-tittle {
+	display: inline-block;
+}
+.pizza-menu .pizza-flavers .pizza-price {
+	float: right;
+	font-size: 30px;
+	color: #bf2424;
+	font-weight: bold;
+	font-family: 'Josefin Sans';
+}
+.pizza-menu .pizza-flavers span {
+	font-size: 18px;
+	font-size: 12px;
+	text-transform: uppercase;
+	font-weight: bold;
+}
+.pizza-menu textarea {
+	min-width: 400px;
+	border: 1px solid #d9d9d9;
+	padding: 5px 10px;
+	margin-top: 10px;
+	border-radius: 4px;
+}
+.choo-pizza {
+	float: right;
+	font-family: 'Josefin Sans';
+	color: #a5a5a5;
+	border: 1px solid #a5a5a5;
+	border-radius: 20px;
+	font-size: 12px;
+	font-weight: bold;
+	text-transform: uppercase;
+	padding: 12px 20px;
+	margin-left: 20px;
+}
+.choo-pizza i {
+	margin-right: 5px;
+}
+.choo-pizza:hover {
+	border-color: #bf2424;
+	background: #bf2424;
+	color: #fff;
+}
+.choo-pizza.active {
+	border-color: #bf2424;
+	background: #bf2424;
+	color: #fff;
+}

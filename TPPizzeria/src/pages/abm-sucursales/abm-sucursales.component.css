@@ -1,0 +1,50 @@
+body{
+  font-family:'Verdana';
+  background:#343a40;
+}
+
+h1{
+  text-align:center;
+  color:orange;
+}
+
+form{
+  width:90%;
+  max-width:578px;
+  margin: auto;
+  color:#f1f3f5;
+}
+
+fieldset{
+  border:1px solid #868e96;
+  border-radius:5px;
+  background:red;
+  padding:16px;
+}
+
+label{
+  display:block;
+  margin-bottom: 5px;
+}
+
+legend{
+	color: black;
+}
+
+input, select,textarea{
+  width:100%;
+  color:#495057;
+  margin-bottom: 24px;
+  padding:5px 10px;
+  border:1px solid #BDBDBD;
+  border-radius:5px;
+}
+
+input[type='submit']{
+  display:block;
+  margin:0;
+  width:initial;
+  background:orange;
+  font-size:24px;
+  border:0;
+}

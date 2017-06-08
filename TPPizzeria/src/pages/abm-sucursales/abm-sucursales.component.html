@@ -1,0 +1,28 @@
+<h1>Alta de Sucursales</h1>
+<form action="" method="">
+  <fieldset >
+    <legend>Datos de Sucursal</legend>
+    <label for="">Nombre</label>
+    <input type="text" [(ngModel)]="nomApell" [ngModelOptions]="{standalone: true}">
+    <label for="">Telefonos</label>
+    <input type="text" [(ngModel)]="telefono" [ngModelOptions]="{standalone: true}">
+    <!--<label for="">Email</label>
+    <input type="text" [(ngModel)]="email" [ngModelOptions]="{standalone: true}">
+    <label for="">Password</label>
+    <input type="text" [(ngModel)]="fecIngreso" [ngModelOptions]="{standalone: true}">
+    <label for="">Repetir Password</label>
+    <input type="text" [(ngModel)]="foto" [ngModelOptions]="{standalone: true}">-->
+    <label for="">Estado</label>
+    <select name="" id="" [(ngModel)]="estado" [ngModelOptions]="{standalone: true}">
+      <option value="Habilitado">Habilitado</option>
+      <option value="Inhabilitado">Inhabilitado</option>
+    </select>
+    <label for="">Direccion</label>
+    <input type="text" [(ngModel)]="direccion" [ngModelOptions]="{standalone: true}">
+    <label for="">Localidad</label>
+    <input type="text" [(ngModel)]="localidad" [ngModelOptions]="{standalone: true}">
+    <!--<textarea></textarea>-->
+    <input type="submit" value="Agregar" (click)="AgregarSucursal()" /><br>
+  </fieldset>
+</form>
+<hr/>

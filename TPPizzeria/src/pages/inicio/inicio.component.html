@@ -26,8 +26,8 @@
 <div id="about" class="container-fluid">
   <div class="row">
     <div class="col-sm-8">
-      <h2 class="text-center" style="color:red;">Sobre Nuestros Restaurants</h2>
-      <h4>bla bla..</h4> 
+      <h1 class="text-center" style="color:red;">Pizzeria Argenta SRL</h1>
+      <h4>TENEMOS LA MEJOR COCINA</h4> 
       <p>bla bla..</p>
       <button class="btn btn-default btn-lg">Leer mas..</button>
     </div>
@@ -77,10 +77,10 @@
 
 
 
-<div id="menu" class="container-fluid">
+<div id="promo" class="container-fluid">
   <div class="text-center">
-    <h2>MENU</h2>
-    <h4>Choose a payment plan that works for you</h4>
+    <h2>PROMOS</h2>
+    <h4>Elegi la promo que mas te guste</h4>
   </div>
   <div class="row">
     <div class="col-sm-4">
@@ -140,6 +140,39 @@
   </div>
 </div>
 
+<!--Menu-->
+<!-- Pizza Menu -->
+    <section class="pizza-menu tri-white-top padding-top-100 padding-bottom-100" id="our-menu">
+<div id="menu" class="container-fluid"> 
+        
+        <!-- Heading Block -->
+        <div class="heading text-center"> <span>Tome su pedido</span>
+          <h3>Menu</h3>
+          <hr>
+          <i class="fa fa-bookmark-o"></i> </div>
+
+          <!-- Flavours -->
+        <ul class="pizza-flavers">
+          
+          <!-- Pizza Flavours -->
+          <li> <!--ngfor -->
+            <!-- Pizza Image -->
+            <div class="media-left">
+              <div class="menu-img"> <img [src]="menu1" alt=""> </div>
+            </div>
+            <!-- Pizza Tittles -->
+            <div class="media-body">
+              <div class="menu-tittle">
+                <h5>01. Margherita</h5>
+                <span>Cheese, Tomato Sauce, Garlic, Oregano</span> </div>
+              <!-- Pizza Price -->
+              <div class="pizza-price">$9.00</div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </section>
+
 <div id="contact" class="container-fluid bg-grey">
   <h2 class="text-center">CONTACTO</h2>
   <div class="row">
@@ -168,15 +201,3 @@
   </div>
 </div>
 
-<!-- Add Google Maps -->
-<!--<div id="googleMap" style="height:400px;width:100%;"></div>
-<script>
-function myMap() {
-var myCenter = new google.maps.LatLng(41.878114, -87.629798);
-var mapProp = {center:myCenter, zoom:12, scrollwheel:false, draggable:false, mapTypeId:google.maps.MapTypeId.ROADMAP};
-var map = new google.maps.Map(document.getElementById("googleMap"),mapProp);
-var marker = new google.maps.Marker({position:myCenter});
-marker.setMap(map);
-}-->
-<!--</script>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBu-916DdpKAjTmJNIgngS6HL_kDIKU0aU&callback=myMap"></script>-->

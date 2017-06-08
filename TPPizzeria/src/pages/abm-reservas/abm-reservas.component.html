@@ -1,0 +1,57 @@
+<body>
+    <h1>Listado de Personas</h1>
+     <!--<h1>CSS3 Checkbox Styles</h1>-->
+<div class="ondisplay">
+  
+
+  
+<!--<section>  
+   Squared FOUR 
+  <div class="squaredFour">
+  	<input type="checkbox"  (change)="muestra= !muestra" id="squaredFour" name="check" checked />
+	  <label for="squaredFour"></label>
+  </div>
+</section>-->
+  
+</div>
+		<table class="listado">
+			<thead>
+				<tr>
+          <th><h1>HORA</h1></th>
+					<th><h1>LUNES</h1></th>
+					<th><h1>MARTES</h1></th>
+					<th><h1>MIERCOLES</h1></th>
+          <th><h1>JUEVES</h1></th>
+          <th><h1>VIERNES</h1></th>
+          <th><h1>SABADO</h1></th>
+          <th><h1>DOMINGO</h1></th>
+				</tr>
+			</thead>
+			<tbody *ngFor="let item of datosReservas">
+				<tr *ngIf="item.reserva=='Libre'">
+          <td>{{item.hora}}</td>
+					<td class="icono1"><a href="#"><span class="fa glyphicon glyphicon-pencil fa-2x" style="font-size:30px;"></span></a></td>	
+					<td class="icono2"><a (click)="BorrarCliente(item.id)"><span class="fa glyphicon glyphicon-trash fa-2x" style="font-size:30px;"></span></a></td>	
+					<td class="icono1"><a href="#"><span class="fa glyphicon glyphicon-pencil fa-2x" style="font-size:30px;"></span></a></td>	
+					<td class="icono2"><a (click)="BorrarCliente(item.id)"><span class="fa glyphicon glyphicon-trash fa-2x" style="font-size:30px;"></span></a></td>	
+          <td class="icono1"><a href="#"><span class="fa glyphicon glyphicon-pencil fa-2x" style="font-size:30px;"></span></a></td>	
+					<td class="icono2"><a (click)="BorrarCliente(item.id)"><span class="fa glyphicon glyphicon-trash fa-2x" style="font-size:30px;"></span></a></td>	
+					<td class="icono2"><a (click)="BorrarCliente(item.id)"><span class="fa glyphicon glyphicon-trash fa-2x" style="font-size:30px;"></span></a></td>		
+				</tr>
+        <tr *ngIf="item.sexo!='Femenino'" >
+          <td>{{item.id}}</td>
+					<td>{{item.nomApell}}</td>
+					<td>{{item.telefono}}</td>
+					<td >{{item.email}}</td>
+          <td>{{item.sexo}}</td>
+          <td>{{item.fecIngreso}}</td>
+          <td><img src="./assets/fotos/{{item.foto}}" style=" width:80px; height:80px;"> </td>
+          <td>{{item.direccion}}</td>
+          <td>{{item.localidad}}</td>
+					<td class="icono1" ><a href="#"><span class="fa glyphicon glyphicon-pencil fa-2x" style="font-size:30px;"></span></a></td>	
+					<td class="icono2" ><a (click)="BorrarCliente(item.id)"><span class="fa glyphicon glyphicon-trash fa-2x" style="font-size:30px;"></span></a></td>	
+				</tr>
+				
+			</tbody>
+		</table>
+</body>

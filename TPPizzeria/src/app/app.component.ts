@@ -7,6 +7,8 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
 
+
+  public altaPedido: boolean = true;
   
   title = 'app works!';
 }
