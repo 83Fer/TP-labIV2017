@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-abm-usuario',
@@ -7,9 +7,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AbmUsuarioComponent implements OnInit {
 
+  mostrar:string;
+
   constructor() { }
 
   ngOnInit() {
   }
+
+  @Input()
+    set Mostrar(vista:any){
+      console.log(vista);
+      this.mostrar = vista;
+    }
 
 }

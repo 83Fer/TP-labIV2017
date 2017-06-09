@@ -23,6 +23,7 @@
       <a class="navbar-brand" href="#">INICIO</a>
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
+      <!--Navegacion-->
       <ul class="nav navbar-nav navbar-right">
         <li><a href="#about">SOBRE</a></li>
         <li><a href="#portfolio">FOTOS</a></li>
@@ -31,42 +32,43 @@
         <li><a href="#contact">CONTACTO</a></li>
 
 
-          <!--Dropdown Administrador-->
+          <!--Administrador-->
         <li dropdown class="dropdown pointer"><a dropdownToggle class="dropdown-toggle">
           ADMINISTRADOR<span class="caret"></span></a>
           <ul dropdwnMenu class="dropdown-menu" >
-            <li><a (click)="abmUserModal.show()" style="background-color:orange" >Alta Usuarios</a></li>
-            <li><a (click)="listaUserModal.show()" style="background-color:orange">Lista de Usuarios</a></li>
+            <li><a (click)="abmUserModal.show(); vistaUser='alta'" style="background-color:orange" >Alta Usuarios</a></li>
+            <li><a (click)="abmUserModal.show(); vistaUser='grilla'" style="background-color:orange">Lista de Usuarios</a></li>
             <li><a (click)="abmSucModal.show()" style="background-color:orange" >ABM Sucursales</a></li>
             <li><a (click)="abmPlatosModal.show()" style="background-color:orange">ABM Platos y Ofertas</a></li>
             <li><a href="#portfolio" style="background-color:orange" >Estadisticas</a></li>
           </ul>
         </li>
-
+        <!--Encargado-->
         <li dropdown class="dropdown pointer"><a dropdownToggle class="dropdown-toggle">
           ENCARGADO<span class="caret"></span></a>
           <ul dropdwnMenu class="dropdown-menu" >
-            <li><a (click)="abmUserModal.show()" style="background-color:orange">Alta Usuarios</a></li>
-            <li><a (click)="listaUserModal.show()" style="background-color:orange">Lista de Usuarios</a></li>
+            <li><a (click)="abmUserModal.show(); vistaUser='alta'" style="background-color:orange">Alta Usuarios</a></li>
+            <li><a (click)="abmUserModal.show(); vistaUser='grilla'" style="background-color:orange">Lista de Usuarios</a></li>
             <li><a (click)="abmPlatosModal.show()" style="background-color:orange">ABM Platos y Ofertas</a></li> 
           </ul>
         </li>
-
+        <!--Empleado-->
         <li dropdown class="dropdown pointer"><a dropdownToggle class="dropdown-toggle">
           EMPLEADO<span class="caret"></span></a>
           <ul dropdwnMenu class="dropdown-menu" >
-            <li><a (click)="abmUserModal.show()" style="background-color:orange">Alta Clientes</a></li>
-            <li><a (click)="listaUserModal.show()" style="background-color:orange">Lista de Clientes</a></li>
-            <li><a (click)="abmPedidosModal.show()" style="background-color:orange">Lista de Pedidos</a></li>
+            <li><a (click)="abmUserModal.show(); vistaUser='alta';" style="background-color:orange">Alta Clientes</a></li>
+            <li><a (click)="abmUserModal.show(); vistaUser='grilla';" style="background-color:orange">Lista de Clientes</a></li>
+            <li><a (click)="abmPedidosModal.show(); vistaPedidos='alta'" style="background-color:orange">Alta de Pedidos</a></li>
+            <li><a (click)="abmPedidosModal.show(); vistaPedidos='grilla'" style="background-color:orange">Lista de Pedidos</a></li>
             <li><a (click)="abmPlatosModal.show()" style="background-color:orange">Alta Platos y Ofertas</a></li>
           </ul>
         </li>
-
+        <!--Operaciones-->
         <li dropdown class="dropdown pointer"><a dropdownToggle class="dropdown-toggle">
           OPERACIONES<span class="caret"></span></a>
           <ul dropdwnMenu class="dropdown-menu">
             <li><a (click)="abmReservaModal.show()" style="background-color:orange">Reservas</a></li>
-            <li><a (click)="abmPedidosModal.show()" style="background-color:orange">Pedidos para Fiestas</a></li>
+            <li><a (click)="abmPedidosModal.show(); vistaPedidos='alta'" style="background-color:orange">Pedidos para Fiestas</a></li>
           </ul>
         </li>
 
@@ -74,16 +76,10 @@
       </ul>
     </div>
   </div>
-</nav>
 
-
-<!--Navegacion de la Pagina-->
-<app-inicio>Loading...</app-inicio>
-
-
-<!--Pagina Login-->
+  <!--Pagina Login-->
 <div class="modal fade" bsModal #loginModal="bs-modal" tabindex="-1" role="dialog" aria-hidden="true">
-  <div class="modal-dialog modal-lg">
+  <div class="modal-dialog modal-sm2">
     <div class="modal-content">     
         <button type="button" class="close pull-right" aria-label="Close" (click)="loginModal.hide()">
           <span aria-hidden="true">&times;</span>
@@ -95,40 +91,33 @@
   </div>
 </div>
 
-
 <!--Pagina de ABM Usuarios-->
-
 <div class="modal fade" bsModal #abmUserModal="bs-modal" tabindex="-1" role="dialog" aria-hidden="true">
-  <div  style="background:orange; padding:25px;" class="modal-dialog modal-lg">
+    <!--Alta Clientes-->
+  <div *ngIf="vistaUser=='alta'" style="background:lightgray; padding:10px;" class="modal-dialog modal-lg2">
     <div class="modal-content">      
       <button type="button" class="close pull-right" aria-label="Close" (click)="abmUserModal.hide()">
         <span aria-hidden="true">&times;</span>
       </button>
     </div>
     <div class="modal-body">
-      <app-abm-usuario>Cargando...</app-abm-usuario> 
+      <app-abm-usuario [Mostrar]="vistaUser">Cargando...</app-abm-usuario> 
     </div>
   </div>
-</div>
-
-<!--Pagina de Lista de Usuarios-->
-
-<div class="modal fade" bsModal #listaUserModal="bs-modal" tabindex="-1" role="dialog" aria-hidden="true">
-  <div  style="background:orange; padding:25px;" class="modal-dialog modal-lg">
+      <!--Lista Clientes-->
+  <div *ngIf="vistaUser=='grilla'" style="background:lightgray; padding:10px;" class="modal-dialog modal-lg">
     <div class="modal-content">      
-      <button type="button" class="close pull-right" aria-label="Close" (click)="listaUserModal.hide()">
+      <button type="button" class="close pull-right" aria-label="Close" (click)="abmUserModal.hide()">
         <span aria-hidden="true">&times;</span>
       </button>
     </div>
     <div class="modal-body">
-      <app-lista-usuario>Cargando...</app-lista-usuario> 
+      <app-abm-usuario [Mostrar]="vistaUser">Cargando...</app-abm-usuario> 
     </div>
   </div>
 </div>
 
-
 <!--Pagina de ABM Sucursales-->
-
 <div class="modal fade" bsModal #abmSucModal="bs-modal" tabindex="-1" role="dialog" aria-hidden="true">
   <div  style="background:lightblue; padding:25px;" class="modal-dialog modal-lg">
     <div class="modal-content">      
@@ -142,24 +131,7 @@
   </div>
 </div>
 
-<!--Pagina de ABM Reservas-->
-
-<div class="modal fade" bsModal #abmReservaModal="bs-modal" tabindex="-1" role="dialog" aria-hidden="true">
-  <div  style="background:lightblue; padding:25px;" class="modal-dialog modal-lg">
-    <div class="modal-content">      
-      <button type="button" class="close pull-right" aria-label="Close" (click)="abmReservaModal.hide()">
-        <span aria-hidden="true">&times;</span>
-      </button>
-    </div>
-    <div class="modal-body">
-      <app-abm-reservas>Cargando...</app-abm-reservas> 
-    </div>
-  </div>
-</div>
-
-
 <!--Pagina de ABM Pedidos-->
-
 <div class="modal fade" bsModal #abmPedidosModal="bs-modal" tabindex="-1" role="dialog" aria-hidden="true">
   <div  style="background:lightblue; padding:25px;" class="modal-dialog modal-lg">
     <div class="modal-content">      
@@ -168,14 +140,12 @@
       </button>
     </div>
     <div class="modal-body">
-      <app-abm-pedidos>Cargando...</app-abm-pedidos> 
+      <app-abm-pedidos [Mostrar]="vistaPedidos">Cargando...</app-abm-pedidos> 
     </div>
   </div>
 </div>
 
-
 <!--Pagina de ABM Platos-->
-
 <div class="modal fade" bsModal #abmPlatosModal="bs-modal" tabindex="-1" role="dialog" aria-hidden="true">
   <div  style="background:lightblue; padding:25px;" class="modal-dialog modal-lg">
     <div class="modal-content">      
@@ -188,6 +158,27 @@
     </div>
   </div>
 </div>
+
+  <!--Pagina de ABM Reservas-->
+<div class="modal fade" bsModal #abmReservaModal="bs-modal" tabindex="-1" role="dialog" aria-hidden="true">
+  <div  style="background:lightblue; padding:5px;" class="modal-dialog modal-sm2">
+    <div class="modal-content">      
+      <button type="button" class="close pull-right" aria-label="Close" (click)="abmReservaModal.hide()">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <app-abm-reservas>Cargando...</app-abm-reservas> 
+    </div>
+  </div>
+</div>
+</nav>
+
+
+<!--Navegacion de la Pagina-->
+<app-inicio>Loading...</app-inicio>
+
+
 
 
 <!--Fin de la App-->

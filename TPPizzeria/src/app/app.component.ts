@@ -8,7 +8,10 @@ import { Component } from '@angular/core';
 export class AppComponent {
 
 
-  public altaPedido: boolean = true;
+  public vistaPedidos: string;
+  public vistaUser: string;
+  public vistaReservas: string;
+  public vistaPlatos: string;
   
   title = 'app works!';
 }

@@ -5,9 +5,10 @@
 a{color:inherit;text-decoration:none}
 
 .login-wrap{
+    top: 10px;
     width:100%;
     margin:auto;
-    max-width:700px;
+    max-width:600px;
     min-height:800px;
     position:relative;
     background:url('/assets/images/pizza-background.jpg');
@@ -144,4 +145,9 @@ a{color:inherit;text-decoration:none}
 .foot-lnk{
     text-align:center;
 
+}
+
+h3{
+    font-style: italic;
+    font-size: 40px;
 }
