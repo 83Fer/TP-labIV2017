@@ -39,7 +39,7 @@
             <li><a (click)="abmUserModal.show(); vistaUser='alta'" style="background-color:orange" >Alta Usuarios</a></li>
             <li><a (click)="abmUserModal.show(); vistaUser='grilla'" style="background-color:orange">Lista de Usuarios</a></li>
             <li><a (click)="abmSucModal.show()" style="background-color:orange" >ABM Sucursales</a></li>
-            <li><a (click)="abmPlatosModal.show()" style="background-color:orange">ABM Platos y Ofertas</a></li>
+            <li><a (click)="abmPizzaModal.show()" style="background-color:orange">ABM Platos y Ofertas</a></li>
             <li><a href="#portfolio" style="background-color:orange" >Estadisticas</a></li>
           </ul>
         </li>
@@ -93,8 +93,8 @@
 
 <!--Pagina de ABM Usuarios-->
 <div class="modal fade" bsModal #abmUserModal="bs-modal" tabindex="-1" role="dialog" aria-hidden="true">
-    <!--Alta Clientes-->
-  <div *ngIf="vistaUser=='alta'" style="background:lightgray; padding:10px;" class="modal-dialog modal-lg2">
+    <!--Alta Uusarios-->
+  <div *ngIf="vistaUser=='alta'" style="background:lightgray; padding:10px;" class="modal-dialog modal-lg">
     <div class="modal-content">      
       <button type="button" class="close pull-right" aria-label="Close" (click)="abmUserModal.hide()">
         <span aria-hidden="true">&times;</span>
@@ -104,7 +104,7 @@
       <app-abm-usuario [Mostrar]="vistaUser">Cargando...</app-abm-usuario> 
     </div>
   </div>
-      <!--Lista Clientes-->
+      <!--Lista Uusarios-->
   <div *ngIf="vistaUser=='grilla'" style="background:lightgray; padding:10px;" class="modal-dialog modal-lg">
     <div class="modal-content">      
       <button type="button" class="close pull-right" aria-label="Close" (click)="abmUserModal.hide()">
@@ -145,16 +145,16 @@
   </div>
 </div>
 
-<!--Pagina de ABM Platos-->
-<div class="modal fade" bsModal #abmPlatosModal="bs-modal" tabindex="-1" role="dialog" aria-hidden="true">
+<!--Pagina de ABM Pizzas-->
+<div class="modal fade" bsModal #abmPizzasModal="bs-modal" tabindex="-1" role="dialog" aria-hidden="true">
   <div  style="background:lightblue; padding:25px;" class="modal-dialog modal-lg">
     <div class="modal-content">      
-      <button type="button" class="close pull-right" aria-label="Close" (click)="abmPlatosModal.hide()">
+      <button type="button" class="close pull-right" aria-label="Close" (click)="abmPizzasModal.hide()">
         <span aria-hidden="true">&times;</span>
       </button>
     </div>
     <div class="modal-body">
-      <app-abm-platos>Cargando...</app-abm-platos> 
+      <app-abm-pizzas>Cargando...</app-abm-pizzas> 
     </div>
   </div>
 </div>

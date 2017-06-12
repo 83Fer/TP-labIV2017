@@ -117,8 +117,8 @@ h1{
 }
 
 form{
-  width:90%;
-  max-width:578px;
+  width:100%;
+  max-width:800px;
   margin: auto;
   color:#f1f3f5;
 }
@@ -129,7 +129,7 @@ fieldset{
   background:#495057;
   padding:16px;
 }
-
+/*
 label{
   display:block;
   margin-bottom: 5px;
@@ -138,7 +138,11 @@ label{
 legend{
 	color: black;
 }
-
+*/
+label{
+  display:block;
+  margin-bottom: 5px;
+}
 input, select,textarea{
   width:100%;
   color:#495057;
@@ -153,7 +157,7 @@ input[type='submit']{
   margin:0;
   width:initial;
   background:orange;
-  font-size:24px;
+  font-size:23px;
   border:0;
 }
 

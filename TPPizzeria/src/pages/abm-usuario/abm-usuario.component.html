@@ -1,3 +1,4 @@
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <body>
   <div *ngIf="mostrar=='grilla'">
   <h1>Listado de Personas</h1>
@@ -54,32 +55,77 @@
 
   <div *ngIf="mostrar=='alta'">
     <h1>Alta de Usuario</h1>
-    <form action="" method="">
-      <fieldset >
-        <legend>Datos de Usuario</legend>
-        <label for="">Nombre y Apellido</label>
-        <input type="text" [(ngModel)]="nomApell" [ngModelOptions]="{standalone: true}">
-        <label for="">Telefono</label>
-        <input type="text" [(ngModel)]="telefono" [ngModelOptions]="{standalone: true}">
-        <label for="">Email</label>
-        <input type="text" [(ngModel)]="email" [ngModelOptions]="{standalone: true}">
-        <label for="">Password</label>
-        <input type="text" [(ngModel)]="fecIngreso" [ngModelOptions]="{standalone: true}">
-        <label for="">Repetir Password</label>
-        <input type="text" [(ngModel)]="foto" [ngModelOptions]="{standalone: true}">
-        <label for="">Sexo</label>
-        <select name="" id="" [(ngModel)]="sexo" [ngModelOptions]="{standalone: true}">
-          <option value="No especificado" >No especificado</option>
-          <option value="Femenino"  >Femenino</option>
-          <option value="Masculino" >Masculino</option>
-        </select>
-        <label for="">Direccion</label>
-        <input type="text" [(ngModel)]="direccion" [ngModelOptions]="{standalone: true}">
-        <label for="">Localidad</label>
-        <input type="text" [(ngModel)]="localidad" [ngModelOptions]="{standalone: true}">
-        <!--<textarea></textarea>-->
-        <input type="submit" value="Agregar" (click)="AgregarCliente()" /><br>
-      </fieldset>
-    </form>
+    <fieldset>
+        <form class="form-inline" action="/action_page.php">
+          <div class="form-group">
+            <label for="">Nombre y Apellido:</label>
+            <input style="width: 350px;	height: 30px;" type="text" [(ngModel)]="nomApell" [ngModelOptions]="{standalone: true}" class="form-control" placeholder="Nombre y Apellido" required>
+          </div>
+        </form>
+        <form class="form-inline" action="/action_page.php">
+          <div class="form-group">
+            <label for="">Sexo</label>
+              <select style="width: 250px;	height: 30px;" name="" id="" [(ngModel)]="sexo" [ngModelOptions]="{standalone: true}">
+                <option style="font-family:'Verdana'; font-weight: bold; " value="Femenino"  >Femenino</option>
+                <option style="font-family:'Verdana'; font-weight: bold; " value="Masculino" >Masculino</option>
+              </select>
+          </div>
+        </form>
+        <form class="form-inline" action="/action_page.php">
+          <div class="form-group">
+            <label for="">Telefono:</label>
+            <input style="width: 250px;	height: 30px;" type="text" [(ngModel)]="telefono" [ngModelOptions]="{standalone: true}" class="form-control" placeholder="Telefonos">
+          </div>
+          <div class="form-group">
+            <label for="">Direccion:</label>
+            <input style="width: 250px;	height: 30px;" type="text" [(ngModel)]="direccion" [ngModelOptions]="{standalone: true}" class="form-control" placeholder="Direccion">
+          </div>
+          <div class="form-group">
+            <label for="">Localidad:</label>
+            <input style="width: 250px;	height: 30px;" type="text" [(ngModel)]="localidad" [ngModelOptions]="{standalone: true}" class="form-control" placeholder="Localidad">
+          </div>
+          <div class="form-group">
+            <label for="">Email:</label>
+            <input style="width: 250px;	height: 30px;" type="text" [(ngModel)]="email" [ngModelOptions]="{standalone: true}" class="form-control" placeholder="Email">
+          </div>
+        </form>
+        <form class="form-inline" action="/action_page.php">
+          <div class="form-group">
+            <label for="">Password:</label>
+            <input style="width: 250px;	height: 30px;" type="password" [(ngModel)]="clave" [ngModelOptions]="{standalone: true}" class="form-control" placeholder="Password">
+          </div>
+          <div class="form-group">
+            <label for="">Repetir Password:</label>
+            <input style="width: 250px;	height: 30px;" type="password" [(ngModel)]="clave2" [ngModelOptions]="{standalone: true}" class="form-control" placeholder="Repetir Password">
+          </div>
+        </form>
+        <form class="form-inline">
+          <div class="form-group">
+            <label for="">Tipo de Usuario</label>
+            <select style="width: 250px;	height: 30px;" name="" id="" [(ngModel)]="tipo" [ngModelOptions]="{standalone: true}">
+                <option style="font-family:'Verdana'; font-weight: bold; " value="Encargado"  >Encargado</option>
+                <option style="font-family:'Verdana'; font-weight: bold; " value="Empleado" >Empleado</option>
+                <option style="font-family:'Verdana'; font-weight: bold; " value="Cliente" >Cliente</option>
+              </select>
+          </div>
+        </form>
+        <input style="height: 40px;" type="submit" value="Agregar" (click)="AgregarUsuario(); " /><br>
+    </fieldset>
   </div>
 </body>
+
+<div *ngIf="isModalShown" [config]="{ show: true }" (onHidden)="onHidden()" bsModal #autoShownModal="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title pull-left">{{titulo}}</h4>
+        <button type="button" class="close pull-right" aria-label="Close" (click)="hideModal()">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>{{leyenda}}</p>
+      </div>
+    </div>
+  </div>
+</div>
