@@ -9,6 +9,7 @@
 			background-color:#FFDAC4;
 			background: url(http://www.pixeden.com/media/k2/galleries/131/002-subtle-light-pattern-background-texture.jpg);
 		}
+		
 
 		h1 {
 			font-size:3em; 
@@ -27,7 +28,7 @@
 
 		.listado td {
 			font-weight: normal;
-			font-size: 1em;
+			font-size: 11px;
 			-webkit-box-shadow: 0 2px 2px -2px #0E1119;
 			-moz-box-shadow: 0 2px 2px -2px #0E1119;
 			box-shadow: 0 2px 2px -2px #0E1119;
@@ -35,29 +36,35 @@
 
 		.listado {
 			text-align: left;
-			overflow: hidden;
-			width: 85%;
+			/*overflow: hidden;*/
+			width: 99%;
 			margin: 0 auto;
 			display: table;
-			padding: 0 0 8em 0;
+			padding: 0 0 8em 3em;
+			/*overflow: scroll;*/
+			/*width: 1180px;
+			height: 500px;*/
 		}
 
 		.listado td, .listado th {
-			padding-bottom: 2%;
-			padding-top: 2%;
-			padding-left:2%;  
+			padding-bottom: 5px;
+			padding-top: 5px;
+			padding-left:1%;  
 		}
 
 		.listado tr:nth-child(odd) {
 			background-color: #EEEAE7;
+			
 		}
 
 		.listado tr:nth-child(even) {
 			background-color: #FFFFFF;
+			
 		}
 
 		.listado th {
 			background-color: #350133;
+			
 		}
 
 		.listado td:first-child { 
@@ -129,16 +136,7 @@ fieldset{
   background:#495057;
   padding:16px;
 }
-/*
-label{
-  display:block;
-  margin-bottom: 5px;
-}
 
-legend{
-	color: black;
-}
-*/
 label{
   display:block;
   margin-bottom: 5px;

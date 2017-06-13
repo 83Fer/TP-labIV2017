@@ -26,3 +26,8 @@
 body{
     background-color: lightsalmon;
 }
+
+#mdialTamanio{
+  width: 93% !important;
+  height: 95%;
+}
