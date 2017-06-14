@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 
-import { Http, Response, Headers, RequestOptionsArgs} from '@angular/http';
+import { Http, Response, Headers, RequestOptionsArgs, RequestOptions } from '@angular/http';
 
 import 'rxjs/add/operator/toPromise';
 
@@ -11,14 +11,22 @@ import { Usuario } from '../clases/usuario';
 
 @Injectable()
 export class UsuarioService {
+  headers : Headers;
+   options : any;
 
-  constructor(public http:Http) { }
+  constructor(public http:Http) {
+
+    this.headers = new Headers()
+    this.headers.append("Authorization", "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE0OTc0MDU5NDIsImV4cCI6MTQ5NzQxMzE0Miwic3ViIjoiVVNFUiJ9.svFLI0bYNjQrw4hvIHjEaNsf1c5QwEH0AXAenYdb7wc");
+    this.options = new RequestOptions({headers: this.headers})
+   }
 
   TraerTodosLosUsuarios(tipo: string)
   {
+    
     let url = "http://localhost:8080/AppiPizza/public/index.php/usuario/" + tipo;    
     return this.http
-      .get(url)
+      .get(url, this.options)
       .toPromise()
       .then(this.ExtraerDatos)
       .catch(this.ErrorExtraerDatos);
@@ -51,7 +59,9 @@ export class UsuarioService {
             
             console.log(datos);
     
-    this.http.post("http://localhost:8080/AppiPizza/public/index.php/usuario" , datos)
+   let url = "http://localhost:8080/AppiPizza/public/index.php/usuario";
+    this.http
+             .post(url , datos, this.options)
              .toPromise()
              .then()
              .catch(this.ErrorExtraerDatos)
@@ -60,7 +70,9 @@ export class UsuarioService {
   BorraUsuario(id:number)
   {
 
-    this.http.delete("http://localhost:8080/AppiPizza/public/index.php/usuario/" + id)
+    let url = "http://localhost:8080/AppiPizza/public/index.php/usuario/" + id;
+    this.http
+             .delete(url, this.options)
              .toPromise()
              .then()
              .catch(this.ErrorExtraerDatos)
@@ -71,7 +83,7 @@ export class UsuarioService {
   {
     let url = "http://localhost:8080/AppiPizza/public/index.php/usuario/id/" + id;    
     return this.http
-      .get(url)
+      .get(url, this.options)
       .toPromise()
       .then(this.ExtraerDatos)
       .catch(this.ErrorExtraerDatos);
@@ -95,8 +107,10 @@ export class UsuarioService {
             
             console.log(datos);
             console.log(" LLego Usuario");
-    
-      this.http.put("http://localhost:8080/AppiPizza/public/index.php/usuario/" + id , datos)
+      
+      let url = "http://localhost:8080/AppiPizza/public/index.php/usuario/" + id;
+      this.http
+             .put(url , datos, this.options)
              .toPromise()
              .then()
              .catch(this.ErrorExtraerDatos)

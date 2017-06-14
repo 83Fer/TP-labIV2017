@@ -167,12 +167,12 @@ export class AbmUsuarioComponent implements OnInit {
     //Baja de Usuario
     BtnBajaUsuario(){
       this.datosApiUsuario.BorraUsuario(this.idUsuario);
-
+      this.onHidden3();
       var temp=this;
       setTimeout(function(){
           temp.TraerTodosLosUsuarios();
       }, 500);
-      
+
     } 
 
     BorrarUsuario(id:number){
