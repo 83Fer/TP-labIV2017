@@ -1,6 +1,6 @@
 import { Component, OnInit, Input, ViewChild } from '@angular/core';
 
-import { UsuarioService } from '../../servicios/usuario.service';
+import { UsuarioService } from '../../servicios/webService/usuario.service';
 import { Http, HttpModule} from '@angular/http';
 
 import { Usuario } from '../../clases/usuario';
@@ -113,10 +113,7 @@ export class AbmUsuarioComponent implements OnInit {
             this.leyenda = error;
         }
 
-
-
       }
-
       
     }
 

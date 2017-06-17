@@ -229,3 +229,9 @@
 	background: #bf2424;
 	color: #fff;
 }
+
+agm-map {
+  width: 1200px;
+  height: 400px;
+  
+}

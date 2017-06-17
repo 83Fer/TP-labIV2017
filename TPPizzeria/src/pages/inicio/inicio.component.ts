@@ -1,5 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 
+//Tipo de marcador
+interface marcador{
+  nombre: string;
+  lat: number;
+  lng: number;
+  arrastable:boolean;
+}
+
 @Component({
   selector: 'app-inicio',
   templateUrl: './inicio.component.html',
@@ -20,6 +28,35 @@ export class InicioComponent implements OnInit {
   about3:string= '/assets/images/about-img-3.jpg';
 
   menu1:string= '/assets/images/menu-img-1.jpg';
+
+   zoom: number = 11;
+  
+  //posicion inicial
+  lat: number =  -34.6601800;
+  lng: number =  -58.3674400; 
+
+  //marcadores
+  marcadores: marcador[] = [
+    {
+      nombre: "Sucursal de Bernal",
+      lat: -34.7167,
+      lng: -58.3,
+      arrastable: true
+    },
+    {
+      nombre: "Sucursal de Avellaneda",
+      lat: -34.6601800,
+      lng: -58.3674400,
+      arrastable: true
+    },
+    {
+      nombre: "Sucursal de Sarandi",
+      lat: -34.6667,
+      lng: -58.3333,
+      arrastable: false
+    }
+  ]
+ 
 
   constructor() { }
 

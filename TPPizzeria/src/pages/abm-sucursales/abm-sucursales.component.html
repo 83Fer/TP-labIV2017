@@ -1,3 +1,5 @@
+
+<link rel="stylesheet" href="https://bootswatch.com/flatly/bootstrap.min.css">
 <h1>Alta de Sucursales</h1>
 <form action="" method="">
   <fieldset >
@@ -17,12 +19,30 @@
       <option value="Habilitado">Habilitado</option>
       <option value="Inhabilitado">Inhabilitado</option>
     </select>
-    <label for="">Direccion</label>
+    <!--<label for="">Direccion</label>
     <input type="text" [(ngModel)]="direccion" [ngModelOptions]="{standalone: true}">
     <label for="">Localidad</label>
-    <input type="text" [(ngModel)]="localidad" [ngModelOptions]="{standalone: true}">
+    <input type="text" [(ngModel)]="localidad" [ngModelOptions]="{standalone: true}">-->
     <!--<textarea></textarea>-->
+    
+    <!-- Add Google Maps -->
+
+
+      <label>Mapa de Sucursales</label>
+      <div class="container">
+      <div class="form-group">
+        <input style="width:550px" placeholder="buscar ubicacion..."
+         autocorrect="off" autocapitalize="off" spellcheck="off" type="text" class="form-control"
+          #search [formControl]="searchControl">
+      </div>
+      <agm-map [latitude]="latitude" [longitude]="longitude" [scrollwheel]="false" [zoom]="zoom">
+        <agm-marker [latitude]="latitude" [longitude]="longitude"></agm-marker>
+      </agm-map>
+    </div>
+    
+
     <input type="submit" value="Agregar" (click)="AgregarSucursal()" /><br>
   </fieldset>
 </form>
 <hr/>
+

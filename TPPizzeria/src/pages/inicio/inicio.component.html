@@ -176,12 +176,25 @@
 <div id="contact" class="container-fluid bg-grey">
   <h2 class="text-center">CONTACTO</h2>
   <div class="row">
-    <div class="col-sm-5">
-      <p>Contactanos las 24 hr.</p>
-      <p><span class="glyphicon glyphicon-map-marker"></span> Bernal, BsAs</p>
+    <div class="col-sm-2">
+      <p>Bernal.</p>
+      <p><span class="glyphicon glyphicon-map-marker"></span> San Martin 1223</p>
+      <p><span class="glyphicon glyphicon-phone"></span> +00 1515151515</p>
+      <p><span class="glyphicon glyphicon-envelope"></span> pizzeria@gmail.com</p> 
+       <div ><br>
+      <p>Sarandi.</p>
+      <p><span class="glyphicon glyphicon-map-marker"></span> Belgrano 1178</p>
       <p><span class="glyphicon glyphicon-phone"></span> +00 1515151515</p>
       <p><span class="glyphicon glyphicon-envelope"></span> pizzeria@gmail.com</p> 
     </div>
+    </div>
+    <div class="col-sm-2">
+      <p>Avellaneda.</p>
+      <p><span class="glyphicon glyphicon-map-marker"></span> Mitre 755</p>
+      <p><span class="glyphicon glyphicon-phone"></span> +00 1515151515</p>
+      <p><span class="glyphicon glyphicon-envelope"></span> pizzeria@gmail.com</p> 
+    </div>
+   
     <div class="col-sm-7">
       <div class="row">
         <div class="col-sm-6 form-group">
@@ -199,5 +212,46 @@
       </div> 
     </div>
   </div>
+  <!-- Add Google Maps -->
+
+
+      <label>Mapa</label>
+      <div class="row">
+        <div class="col-md-12">
+          <div class="mapa">
+            <agm-map 
+            [latitude]="lat" 
+            [longitude]="lng" 
+            [zoom]="zoom"
+            [scrollwheel] = false
+            [disableDefaultUI] = "false"
+            [zoomControl]= "false"
+            (mapClick)="mapClickeado($event)">
+              <agm-marker 
+              *ngFor="let item of marcadores; let i = index"
+              (markerClick)="marcadorClickeado(item, i)"
+              [latitude]="item.lat" 
+              [longitude]="item.lng"
+              [markerDraggable]="item.arrastrable"
+              (dragEnd)="posicionFinalMarcado(item, $event)">
+
+              <agm-info-window>
+                <strong style="color:black">{{item.nombre}}</strong>
+              </agm-info-window>
+              </agm-marker>
+
+            </agm-map>
+            </div>
+        </div>
+      </div>
+
 </div>
 
+      
+
+    <footer class="container-fluid text-center">
+  <a href="#myPage" title="To Top">
+    <span class="glyphicon glyphicon-chevron-up"></span>
+  </a>
+  <p>Pizza Argenta <a ></a></p>
+</footer>

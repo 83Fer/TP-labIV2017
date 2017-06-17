@@ -9,8 +9,8 @@ h1{
 }
 
 form{
-  width:90%;
-  max-width:578px;
+  width:100%;
+  max-width:800px;
   margin: auto;
   color:#f1f3f5;
 }
@@ -18,7 +18,7 @@ form{
 fieldset{
   border:1px solid #868e96;
   border-radius:5px;
-  background:red;
+  background:#495057;
   padding:16px;
 }
 
@@ -26,11 +26,6 @@ label{
   display:block;
   margin-bottom: 5px;
 }
-
-legend{
-	color: black;
-}
-
 input, select,textarea{
   width:100%;
   color:#495057;
@@ -42,9 +37,19 @@ input, select,textarea{
 
 input[type='submit']{
   display:block;
-  margin:0;
+  margin:10px;
   width:initial;
   background:orange;
-  font-size:24px;
+  font-size:23px;
   border:0;
 }
+
+
+agm-map {
+  width: 700px;
+  height: 400px;
+  
+}
+
+
+
