@@ -1,3 +1,4 @@
+/*Lista de Usuario*/
 @charset "UTF-8";
 		@import 'https://fonts.googleapis.com/css?family=Raleway';
 		body {
@@ -8,6 +9,7 @@
 			background-color:#FFDAC4;
 			background: url(http://www.pixeden.com/media/k2/galleries/131/002-subtle-light-pattern-background-texture.jpg);
 		}
+		
 
 		h1 {
 			font-size:3em; 
@@ -26,7 +28,7 @@
 
 		.listado td {
 			font-weight: normal;
-			font-size: 1em;
+			font-size: 11px;
 			-webkit-box-shadow: 0 2px 2px -2px #0E1119;
 			-moz-box-shadow: 0 2px 2px -2px #0E1119;
 			box-shadow: 0 2px 2px -2px #0E1119;
@@ -34,29 +36,35 @@
 
 		.listado {
 			text-align: left;
-			overflow: hidden;
-			width: 85%;
+			/*overflow: hidden;*/
+			width: 99%;
 			margin: 0 auto;
 			display: table;
-			padding: 0 0 8em 0;
+			padding: 0 0 8em 3em;
+			/*overflow: scroll;*/
+			/*width: 1180px;
+			height: 500px;*/
 		}
 
 		.listado td, .listado th {
-			padding-bottom: 2%;
-			padding-top: 2%;
-			padding-left:2%;  
+			padding-bottom: 5px;
+			padding-top: 5px;
+			padding-left:1%;  
 		}
 
 		.listado tr:nth-child(odd) {
 			background-color: #EEEAE7;
+			
 		}
 
 		.listado tr:nth-child(even) {
 			background-color: #FFFFFF;
+			
 		}
 
 		.listado th {
 			background-color: #350133;
+			
 		}
 
 		.listado td:first-child { 
@@ -104,7 +112,7 @@
         *{
   box-sizing:border-box;
 }
-/*______________*/
+
 body{
   font-family:'Verdana';
   background:#343a40;
@@ -116,8 +124,8 @@ h1{
 }
 
 form{
-  width:90%;
-  max-width:578px;
+  width:100%;
+  max-width:800px;
   margin: auto;
   color:#f1f3f5;
 }
@@ -133,11 +141,6 @@ label{
   display:block;
   margin-bottom: 5px;
 }
-
-legend{
-	color: black;
-}
-
 input, select,textarea{
   width:100%;
   color:#495057;
@@ -152,132 +155,7 @@ input[type='submit']{
   margin:0;
   width:initial;
   background:orange;
-  font-size:24px;
+  font-size:23px;
   border:0;
 }
 
-
-
-
-/* ------------------------------------ */
-
-table{
-  border:1px solid;
-  
-/*Es para juntar todos los bordes de las celdas*/
-  border-collapse:collapse;
-}
-
-td,th{
-  border:1px solid;
-/*Agrega espacio*/
-  padding:8px;
-}
-
-
-/*CSS de checkbox*/
-
-
-
-.ondisplay{
-  text-align:center;
-  padding:0;
-}
-
-.ondisplay section{
-  width:75px;
-  height:75px;
-  background: #555;
-  display:inline-block;
-  border: 1px solid gray;
-  text-align: center;
-  margin-top:5px;
-  border-radius:5px;
-  box-shadow: 0 1px 4px
-     rgba(0, 0, 0, 0.3), 0 0 40px
-     rgba(0, 0, 0, 0.1) inset;
-}
-
-.ondisplay section::before {
-  content:'Editar'; 
-  color: #bbb;
-	font: 20px Arial, sans-serif;
-	-webkit-font-smoothing: antialiased;
-	text-shadow: 0px 1px black;
-}
-
-
-
-
-
-
-
-
-/* SQUARED FOUR */
-.squaredFour {
-	width: 20px;	
-	margin: 20px auto;
-	position: relative;
-}
-
-.squaredFour label {
-	cursor: pointer;
-	position: absolute;
-	width: 20px;
-	height: 20px;
-	top: 0;
-  left: 0;
-	border-radius: 4px;
-
-	-webkit-box-shadow: inset 0px 1px 1px white, 0px 1px 3px rgba(0,0,0,0.5);
-	-moz-box-shadow: inset 0px 1px 1px white, 0px 1px 3px rgba(0,0,0,0.5);
-	box-shadow: inset 0px 1px 1px white, 0px 1px 3px rgba(0,0,0,0.5);
-	background: #fcfff4;
-
-	background: -webkit-linear-gradient(top, #fcfff4 0%, #dfe5d7 40%, #b3bead 100%);
-	background: -moz-linear-gradient(top, #fcfff4 0%, #dfe5d7 40%, #b3bead 100%);
-	background: -o-linear-gradient(top, #fcfff4 0%, #dfe5d7 40%, #b3bead 100%);
-	background: -ms-linear-gradient(top, #fcfff4 0%, #dfe5d7 40%, #b3bead 100%);
-	background: linear-gradient(top, #fcfff4 0%, #dfe5d7 40%, #b3bead 100%);
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fcfff4', endColorstr='#b3bead',GradientType=0 );
-}
-
-.squaredFour label:after {
-	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
-	filter: alpha(opacity=0);
-	opacity: 0;
-	content: '';
-	position: absolute;
-	width: 9px;
-	height: 5px;
-	background: transparent;
-	top: 4px;
-	left: 4px;
-	border: 3px solid #333;
-	border-top: none;
-	border-right: none;
-
-	-webkit-transform: rotate(-45deg);
-	-moz-transform: rotate(-45deg);
-	-o-transform: rotate(-45deg);
-	-ms-transform: rotate(-45deg);
-	transform: rotate(-45deg);
-}
-
-.squaredFour label:hover::after {
-	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=30)";
-	filter: alpha(opacity=30);
-	opacity: 0.5;
-}
-
-.squaredFour input[type=checkbox]:checked + label:after {
-	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
-	filter: alpha(opacity=100);
-	opacity: 1;
-}
-
-	
-	
-	
-	
-	

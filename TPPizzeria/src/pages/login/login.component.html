@@ -9,18 +9,21 @@
             <div class="sign-in-htm">
                 <div class="group">
                     <label for="user" class="label">eMail</label>
-                    <input id="user" type="text" [(ngModel)]="email" class="input">
+                    <input (focus)="titulo='';leyenda=''" id="user" type="text" [(ngModel)]="email" class="input">
                 </div>
                 <div class="group">
                     <label for="pass" class="label">Password</label>
-                    <input id="pass" type="password" [(ngModel)]= "clave" class="input" data-type="password">
+                    <input (focus)="titulo='';leyenda=''" id="pass" type="password" [(ngModel)]= "clave" class="input" data-type="password">
                 </div>
                 <div class="group">
                     <input id="check" type="checkbox" class="check" checked>
                     <label for="check"><span class="icon"></span> Keep me Signed in</label>
                 </div>
                 <div class="group">
-                    <input (click)="Login()" type="submit" class="button" value="Sign In">
+                    <input (click)="Login('Login')" type="submit" class="button" value="Sign In">
+                </div>
+                <div *ngIf="leyenda!='' " class="alert alert-danger">
+                    <strong>{{titulo}}!</strong> {{leyenda}}
                 </div>
                 <div class="hr"></div>
                 <div class="foot-lnk">
@@ -60,7 +63,7 @@
                     <input id="pass" type="text" [(ngModel)]= "localidad" class="input">
                 </div>
                 <div class="group">
-                    <input (click)="Registrar()" type="submit" class="button" value="Sign Up">
+                    <input (click)="Registrar('SignUp')" type="submit" class="button" value="Sign Up">
                 </div>
                 <div *ngIf="leyenda!='' " class="alert alert-danger">
                     <strong>{{titulo}}!</strong> {{leyenda}}

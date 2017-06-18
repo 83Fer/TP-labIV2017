@@ -27,18 +27,20 @@ import { UsuarioService } from '../servicios/webService/usuario.service';
 
 // Firebase2
 import {AngularFireModule} from 'angularfire2';
-// import { AngularFireDatabaseModule } from 'angularfire2/database';
-// import { AngularFireAuthModule } from 'angularfire2/auth';
-//import { environment } from '../environments/environment';
+import { AngularFireDatabaseModule } from 'angularfire2/database';
+import { AngularFireAuthModule } from 'angularfire2/auth';
+import { environment } from '../environments/environment';
 
-export const firebaseConfig = {
-    apiKey: "AIzaSyAJlAo7gTshxdZ9D3-bznWbFa-rIRS9Wck",
-    authDomain: "basepizza-c7de4.firebaseapp.com",
-    databaseURL: "https://basepizza-c7de4.firebaseio.com",
-    projectId: "basepizza-c7de4",
-    storageBucket: "basepizza-c7de4.appspot.com",
-    messagingSenderId: "1007338688475"
-  };
+import { AuthService } from 'app/providers/auth.service';
+
+// export const firebaseConfig = {
+//     apiKey: "AIzaSyAJlAo7gTshxdZ9D3-bznWbFa-rIRS9Wck",
+//     authDomain: "basepizza-c7de4.firebaseapp.com",
+//     databaseURL: "https://basepizza-c7de4.firebaseio.com",
+//     projectId: "basepizza-c7de4",
+//     storageBucket: "basepizza-c7de4.appspot.com",
+//     messagingSenderId: "1007338688475"
+//   };
 
 @NgModule({
   declarations: [
@@ -59,6 +61,9 @@ export const firebaseConfig = {
     BrowserModule,
     FormsModule,
     HttpModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFireDatabaseModule,
+    AngularFireAuthModule,
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyBKvI_59Z1HO6TUfIciUazcgRkcRcdPuOQ',
       libraries: ["places"]
@@ -68,7 +73,9 @@ export const firebaseConfig = {
     ReactiveFormsModule
   ],
   providers: [
-    UsuarioService
+    AuthService,
+    UsuarioService,
+    AngularFireModule
   ],
   bootstrap: [AppComponent]
 })

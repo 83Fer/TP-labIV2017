@@ -1,5 +1,9 @@
 import { Component, OnInit, Input, ViewChild } from '@angular/core';
 
+//Firebase
+import { AngularFireDatabase, FirebaseListObservable, 
+  FirebaseObjectObservable } from 'angularfire2/database';
+
 import { UsuarioService } from '../../servicios/webService/usuario.service';
 import { Http, HttpModule} from '@angular/http';
 
@@ -38,6 +42,7 @@ export class AbmUsuarioComponent implements OnInit {
   // fecIngreso;
   datosUsuarios : Array<any>;
   usuario : Array<any>;
+  
 
   //Filtro
   filtroTipo: string;
@@ -53,11 +58,13 @@ export class AbmUsuarioComponent implements OnInit {
     public isModalShown3:boolean = false;
     public isModalModif:boolean = false;
      
+     usuariosList:  FirebaseListObservable<any>;
     
 
-  constructor(public datosApiUsuario : UsuarioService) {
+  constructor(public datosApiUsuario : UsuarioService, db: AngularFireDatabase) {
     
-      //this.TraerTodosLosUsuarios();  
+        this.usuariosList = db.list('/usuarios');
+        console.log(this.usuariosList);
     
    }
 
