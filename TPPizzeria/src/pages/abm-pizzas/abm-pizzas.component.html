@@ -4,7 +4,32 @@
 <div class="ondisplay">
   
 </div>
-		<table class="listado">
+<div  *ngIf="vistaPizza=='Grilla'" class="form-inline">
+	<div class="form-group " style="padding-left:1%;">
+      <label style="color:whitesmoke;" for="">Filtrar por Estado</label>
+            <select (change)="TraerTodasLasPizzas()" style="width: 200px;	height: 30px;" name="" id="" [(ngModel)]="filtroEstado" [ngModelOptions]="{standalone: true}">
+                <option style="font-family:'Verdana'; font-weight: bold; " value="Todos" >Todos</option>
+                <option style="font-family:'Verdana'; font-weight: bold; " value="Alta"  >Alta</option>
+                <option style="font-family:'Verdana'; font-weight: bold; " value="Baja" >Baja</option>
+              </select>
+    </div>
+		<div class="form-group col-sm-6">
+			<label style="color:whitesmoke;" for="">Agregar Pizza</label>
+				<a class="icono2" (click)="vistaPizza='Agregar'">
+					<span class="fa glyphicon glyphicon-plus fa-2x" style="font-size:30px;"></span>
+				</a>
+			
+		</div>
+		
+</div>
+<div style="margin-left:8px;" *ngIf="vistaPizza=='Agregar'" class="form-inline">
+			<label style="color:whitesmoke;" for="">Lista de Pizzas</label>
+				<a class="icono2" (click)="vistaPizza='Grilla'">
+					<span class="fa glyphicon glyphicon-align-justify fa-2x" style="font-size:30px;"></span>
+				</a>
+			
+		</div>
+		<table *ngIf="vistaPizza=='Grilla'" class="listado">
 			<thead>
 				<tr>
           <th><h1></h1></th>
@@ -14,7 +39,7 @@
 					<th colspan="2"><h1>OPCIONES</h1></th>
 				</tr>
 			</thead>
-			<tbody *ngFor="let item of pizzasList | async">
+			<tbody *ngFor="let item of listaPizzas">
 				<tr *ngIf="item.estado=='Alta'">
           <td ><img src="./assets/imgPizza/{{item.foto}}" style=" width:40px; height:40px;"> </td>
           <td>{{item.nombre}}</td>
@@ -36,21 +61,117 @@
 		</table>
 </body>
 
-<div *ngIf="altaPlatos==true">
+<div *ngIf="vistaPizza=='Agregar'">
 <h1>Alta de Pizzas</h1>
 <form action="" method="">
   <fieldset >
     <legend>Datos de Pizza</legend>
     <label for="">Nombre</label>
-    <input type="text" [(ngModel)]="descripcion" [ngModelOptions]="{standalone: true}">
+    <input type="text" [(ngModel)]="nombre" [ngModelOptions]="{standalone: true}">
     <label for="">Precio</label>
     <input type="text" [(ngModel)]="precio" [ngModelOptions]="{standalone: true}">
     <label for="">Descuento</label>
     <input type="text" [(ngModel)]="descuento" [ngModelOptions]="{standalone: true}">
+		<label for="">Foto</label>
+    <input type="text" [(ngModel)]="foto" [ngModelOptions]="{standalone: true}">
     
     <!--<textarea></textarea>-->
-    <input type="submit" value="Agregar Pizza" (click)="AgregarPizza()" /><br>
+    <input type="submit" value="Agregar Pizza" (click)="BtnAgregarPizza()" /><br>
   </fieldset>
 </form>
 <hr/>
+</div>
+
+<!--Modal de Informe-->
+<div *ngIf="isModalShown" [config]="{ show: true }" (onHidden)="onHidden()" bsModal #autoShownModal="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title pull-left">{{titulo}}</h4>
+        <button type="button" class="close pull-right" aria-label="Close" (click)="hideModal()">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>{{leyenda}}</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--Modal de Modificacion-->
+<div *ngIf="isModalModif" [config]="{ show: true }" (onHidden)="ocultaModif()" class="modal fade" bsModal #modifUser="bs-modal" tabindex="-1" role="dialog" aria-hidden="true">
+    <!--Alta Uusarios-->
+  <div style="background:lightgray; padding:10px;" class="modal-dialog modal-lg">
+    <div class="modal-content">      
+      <button type="button" class="close pull-right" aria-label="Close" (click)="cierraModal()">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <h1 style="font-size: 22px;">Modificacion de Pizza</h1>
+    <fieldset>
+        <form class="form-inline" action="/action_page.php">
+          <div class="form-group">
+            <label for="">Nombre:</label>
+            <input style="width: 350px;	height: 30px;" type="text" [(ngModel)]="nombre" [ngModelOptions]="{standalone: true}" class="form-control" placeholder="Nombre" required>
+          </div>
+        </form>
+        
+        <form class="form-inline" action="/action_page.php">
+          <div class="form-group">
+            <label for="">Precio:</label>
+            <input style="width: 250px;	height: 30px;" type="text" [(ngModel)]="precio" [ngModelOptions]="{standalone: true}" class="form-control" placeholder="Precio">
+          </div>
+          <div class="form-group">
+            <label for="">Descuento:</label>
+            <input style="width: 250px;	height: 30px;" type="text" [(ngModel)]="descuento" [ngModelOptions]="{standalone: true}" class="form-control" placeholder="Descuento">
+          </div>
+          <div class="form-group">
+            <label for="">Foto:</label>
+            <input style="width: 250px;	height: 30px;" type="text" [(ngModel)]="foto" [ngModelOptions]="{standalone: true}" class="form-control" placeholder="Foto">
+          </div>  
+        </form>
+        <input style="height: 40px;" type="submit" value="Modificar" (click)="BtnActualizar(); " /><br>
+    </fieldset>
+  </div> 
+    </div>
+
+    <!--Modal de Informe-->
+<div *ngIf="isModalShown2" [config]="{ show: true }" (onHidden)="onHidden2()" bsModal #autoShownModal2="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title pull-left">{{titulo}}</h4>
+        <button type="button" class="close pull-right" aria-label="Close" (click)="hideModal2()">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>{{leyenda}}</p>
+      </div>
+    </div>
+  </div>
+</div>
+  </div>
+
+<!--Modal Baja de pizza-->
+  <div *ngIf="isModalShown3" [config]="{ show: true }" (onHidden)="onHidden3()" bsModal #autoShownModal3="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title pull-left">{{titulo}}</h4>
+        <button type="button" class="close pull-right" aria-label="Close" (click)="hideModal3()">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>{{leyenda}}</p>
+        <div class="form-inline button-right">
+          <button type="button" class="btn btn-danger" (click)="BtnBajaPizza()">Aceptar</button>
+          <button type="button" class="btn btn-primary" (click)="hideModal3()">Cancelar</button>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

@@ -10,7 +10,7 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from "app/providers/auth.service";
 
 //WebService
-import { UsuarioService } from '../../servicios/webService/usuario.service';
+import { UsuarioService } from '../../servicios/webService/usuario/usuario.service';
 import { Http, HttpModule} from '@angular/http';
 
 import { Usuario } from '../../clases/usuario';

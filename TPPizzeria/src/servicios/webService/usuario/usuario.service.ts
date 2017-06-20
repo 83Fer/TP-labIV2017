@@ -7,7 +7,7 @@ import 'rxjs/add/operator/toPromise';
 import { Observable } from 'rxjs/Observable';
 
 
-import { Usuario } from '../../clases/usuario';
+import { Usuario } from '../../../clases/usuario';
 
 @Injectable()
 export class UsuarioService {
@@ -16,9 +16,9 @@ export class UsuarioService {
 
   constructor(public http:Http) {
 
-    this.headers = new Headers()
-    this.headers.append("Authorization", "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE0OTc0ODM0MzUsImV4cCI6MTQ5NzQ5MDYzNSwic3ViIjoiVVNFUiJ9.5DmZo6gRAFZZp9iveFetFLQo0yva7fY37hh2RGipzO0");
-    this.options = new RequestOptions({headers: this.headers})
+    // this.headers = new Headers()
+    // this.headers.append("Authorization", "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE0OTc4OTg1NTEsImV4cCI6MTQ5NzkwNTc1MSwic3ViIjoiVVNFUiJ9.d3dcciMkNAo8FH6WPXMt82pLBXgD9l_Y7MSgc86oEJs");
+    // this.options = new RequestOptions({headers: this.headers})
    }
 
   TraerTodosLosUsuarios(tipo: string)
@@ -26,7 +26,7 @@ export class UsuarioService {
     
     let url = "http://localhost:8080/AppiPizza/public/index.php/usuario/" + tipo;    
     return this.http
-      .get(url, this.options)
+      .get(url)
       .toPromise()
       .then(this.ExtraerDatos)
       .catch(this.ErrorExtraerDatos);
@@ -61,7 +61,7 @@ export class UsuarioService {
     
    let url = "http://localhost:8080/AppiPizza/public/index.php/usuario";
     this.http
-             .post(url , datos, this.options)
+             .post(url , datos)
              .toPromise()
              .then()
              .catch(this.ErrorExtraerDatos)
@@ -72,7 +72,7 @@ export class UsuarioService {
 
     let url = "http://localhost:8080/AppiPizza/public/index.php/usuario/" + id;
     this.http
-             .delete(url, this.options)
+             .delete(url)
              .toPromise()
              .then()
              .catch(this.ErrorExtraerDatos)
@@ -83,7 +83,7 @@ export class UsuarioService {
   {
     let url = "http://localhost:8080/AppiPizza/public/index.php/usuario/id/" + id;    
     return this.http
-      .get(url, this.options)
+      .get(url)
       .toPromise()
       .then(this.ExtraerDatos)
       .catch(this.ErrorExtraerDatos);
@@ -110,37 +110,37 @@ export class UsuarioService {
       
       let url = "http://localhost:8080/AppiPizza/public/index.php/usuario/" + id;
       this.http
-             .put(url , datos, this.options)
+             .put(url , datos)
              .toPromise()
              .then()
              .catch(this.ErrorExtraerDatos)
   }
 
-  //Registrar Cliente
-  RegistrarCliente(usuario: Usuario) 
-  { 
+  // //Registrar Cliente
+  // RegistrarCliente(usuario: Usuario) 
+  // { 
     
-     let datos={
-       nomApell :  usuario.nomApell ,
-       telefono : usuario.telefono ,
-       email : usuario.email ,
-       clave : usuario.clave ,
-       sexo : usuario.sexo ,
-       fecIngreso : usuario.fecIngreso ,
-       foto : usuario.foto ,
-       direccion : usuario.direccion,
-       localidad : usuario.localidad,
-       estado : "Alta",
-       tipo : usuario.tipo };
+  //    let datos={
+  //      nomApell :  usuario.nomApell ,
+  //      telefono : usuario.telefono ,
+  //      email : usuario.email ,
+  //      clave : usuario.clave ,
+  //      sexo : usuario.sexo ,
+  //      fecIngreso : usuario.fecIngreso ,
+  //      foto : usuario.foto ,
+  //      direccion : usuario.direccion,
+  //      localidad : usuario.localidad,
+  //      estado : "Alta",
+  //      tipo : usuario.tipo };
             
-            console.log(datos);
+  //           console.log(datos);
     
-   let url = "http://localhost:8080/AppiPizza/public/index.php/usuario/register";
-    this.http
-             .post(url , datos, this.options)
-             .toPromise()
-             .then()
-             .catch(this.ErrorExtraerDatos)
-  }
+  //  let url = "http://localhost:8080/AppiPizza/public/index.php/usuario/register";
+  //   this.http
+  //            .post(url , datos, this.options)
+  //            .toPromise()
+  //            .then()
+  //            .catch(this.ErrorExtraerDatos)
+  // }
 
 }

@@ -23,7 +23,8 @@ import { AbmPedidosComponent } from '../pages/abm-pedidos/abm-pedidos.component'
 import { AbmPizzasComponent } from '../pages/abm-pizzas/abm-pizzas.component';
 
 //Servicios
-import { UsuarioService } from '../servicios/webService/usuario.service';
+import { UsuarioService } from '../servicios/webService/usuario/usuario.service';
+import { PizzaService } from '../servicios/webService/pizza/pizza.service';
 
 // Firebase2
 import {AngularFireModule} from 'angularfire2';
@@ -33,14 +34,7 @@ import { environment } from '../environments/environment';
 
 import { AuthService } from 'app/providers/auth.service';
 
-// export const firebaseConfig = {
-//     apiKey: "AIzaSyAJlAo7gTshxdZ9D3-bznWbFa-rIRS9Wck",
-//     authDomain: "basepizza-c7de4.firebaseapp.com",
-//     databaseURL: "https://basepizza-c7de4.firebaseio.com",
-//     projectId: "basepizza-c7de4",
-//     storageBucket: "basepizza-c7de4.appspot.com",
-//     messagingSenderId: "1007338688475"
-//   };
+
 
 @NgModule({
   declarations: [
@@ -75,7 +69,8 @@ import { AuthService } from 'app/providers/auth.service';
   providers: [
     AuthService,
     UsuarioService,
-    AngularFireModule
+    AngularFireModule,
+    PizzaService
   ],
   bootstrap: [AppComponent]
 })

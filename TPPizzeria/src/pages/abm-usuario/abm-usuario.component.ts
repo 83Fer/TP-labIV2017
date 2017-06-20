@@ -4,7 +4,7 @@ import { Component, OnInit, Input, ViewChild } from '@angular/core';
 import { AngularFireDatabase, FirebaseListObservable, 
   FirebaseObjectObservable } from 'angularfire2/database';
 
-import { UsuarioService } from '../../servicios/webService/usuario.service';
+import { UsuarioService } from '../../servicios/webService/usuario/usuario.service';
 import { Http, HttpModule} from '@angular/http';
 
 import { Usuario } from '../../clases/usuario';
@@ -375,8 +375,5 @@ export class AbmUsuarioComponent implements OnInit {
         
       }
     }
-
-      
-  
 
 }
