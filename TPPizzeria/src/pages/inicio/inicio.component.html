@@ -151,12 +151,12 @@
           <hr>
           <i class="fa fa-bookmark-o"></i> </div>
 
-          <div *ngFor="let item of pizzaListFire | async">
+          
           <!-- Flavours -->
         <ul class="pizza-flavers">
           
           <!-- Pizza Flavours -->
-            <li> <!--ngfor -->
+            <li *ngFor="let item of pizzaListFire | async"> <!--ngfor -->
               <!-- Pizza Image -->
               <div class="media-left">
                 <div class="menu-img"> <img [src]="menu1" alt=""> </div>
@@ -172,7 +172,7 @@
               </div>
             </li>
           </ul>
-        </div>
+        
       </div>
     </section>
 
