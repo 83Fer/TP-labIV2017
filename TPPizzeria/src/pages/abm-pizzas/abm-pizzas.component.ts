@@ -281,7 +281,65 @@ export class AbmPizzasComponent implements OnInit {
       this.idPizza = id;
       this.showModal3();
       this.titulo = "Atencion!!";
-      this.leyenda = "Esta seguro que desea dar de baja la Pizza !!";
+      this.leyenda = "Esta seguro que desea dar de Baja la pizza !!";
+    }
+
+    //Alta de Pizza Modal
+    AltaPizza(id:number){
+      this.idPizza = id;
+      this.showModal3();
+      this.titulo = "Atencion!!";
+      this.leyenda = "Esta seguro que desea dar de Alta la pizza !!";
+    }
+
+    //Alta de Uusario
+    BtnAltaPizza(){
+      try {
+              var pizza : Pizza = new Pizza();
+
+              pizza.estado = "Alta";
+
+              console.log("El numero es:" + this.idPizza);
+              //Web Services
+              this.datosApiPizza.AltaPizza(this.idPizza, pizza);
+
+              //Firebase
+              var ref : any;
+
+              this.pizzaListFire.subscribe(valor => { valor.forEach(v =>{
+                  if(v.idPizza == this.idPizza)
+                  {
+                    ref = v.$key;
+                    console.info("v.nombre" + v.$key);
+                    
+                    console.info("v.nombre1" + v.idPizza);
+                  }
+                })
+
+              });
+              
+              var temp=this;
+              setTimeout(function(){
+                  temp.pizzaListFire.update(ref, {
+                    estado: "Alta"
+                  })
+              }, 500); 
+
+              this.showModal2();
+              this.titulo = "Alta de Usuario!!";
+              this.leyenda = "Se actualizo correctamente el Usuario!!";
+              
+              var temp=this;
+              setTimeout(function(){
+                  temp.TraerTodasLasPizzas();
+              }, 500);  
+              
+      
+        } catch (error) {
+            this.showModal2();
+            this.titulo = "Error!!";
+            this.leyenda = error;
+        }
     }
 
     //Trae todos los usuarios

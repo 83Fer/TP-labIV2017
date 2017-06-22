@@ -108,5 +108,23 @@ export class PizzaService {
       .then(this.ExtraerDatos)
       .catch(this.ErrorExtraerDatos);
   }
+
+  //Alta de Pizza
+  AltaPizza(id:number, pizza: Pizza) 
+  { 
+    
+     let datos={
+      estado : pizza.estado };
+            
+            console.log(datos);
+            console.log(" LLego pizza Put");
+      
+      let url = "http://localhost:8080/AppiPizza/public/index.php/pizza/alta/" + id;
+      this.http
+             .put(url , datos)
+             .toPromise()
+             .then()
+             .catch(this.ErrorExtraerDatos)
+  }
   
 }
