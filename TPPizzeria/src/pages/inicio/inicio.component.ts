@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 
+//Firebase
+import { AngularFireDatabase, FirebaseListObservable, 
+  FirebaseObjectObservable } from 'angularfire2/database';
+
 //Tipo de marcador
 interface marcador{
   nombre: string;
@@ -27,7 +31,7 @@ export class InicioComponent implements OnInit {
   about2:string= '/assets/images/about-img-2.jpg';
   about3:string= '/assets/images/about-img-3.jpg';
 
-  menu1:string= '/assets/images/menu-img-1.jpg';
+  menu1:string= '/assets/imgPizza/menu-1.jpg';
 
    zoom: number = 11;
   
@@ -56,11 +60,41 @@ export class InicioComponent implements OnInit {
       arrastable: false
     }
   ]
- 
+  
+  pizzaListFire:  FirebaseListObservable<any>;
+  listaPizzas : Array<any>;
 
-  constructor() { }
+  constructor(public db: AngularFireDatabase) { 
+    //Trae Lista de Firebase
+        this.pizzaListFire = db.list('/pizza',{
+          query: {
+            orderByChild : "estado",
+            equalTo : "Alta"
+          }
+        });
+        console.log(this.pizzaListFire);
+
+       
+  }
 
   ngOnInit() {
+  }
+
+  CargaMenu(){
+     
+    var ref : any;
+
+    this.pizzaListFire.subscribe(valor => { valor.forEach(v =>{
+        if(v.estado == "Alta")
+        {
+          this.listaPizzas.push(v);
+        }
+      })
+
+    });
+    
+     
+
   }
 
 }

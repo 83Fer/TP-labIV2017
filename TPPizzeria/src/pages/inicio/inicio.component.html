@@ -151,25 +151,28 @@
           <hr>
           <i class="fa fa-bookmark-o"></i> </div>
 
+          <div *ngFor="let item of pizzaListFire | async">
           <!-- Flavours -->
         <ul class="pizza-flavers">
           
           <!-- Pizza Flavours -->
-          <li> <!--ngfor -->
-            <!-- Pizza Image -->
-            <div class="media-left">
-              <div class="menu-img"> <img [src]="menu1" alt=""> </div>
-            </div>
-            <!-- Pizza Tittles -->
-            <div class="media-body">
-              <div class="menu-tittle">
-                <h5>01. Margherita</h5>
-                <span>Cheese, Tomato Sauce, Garlic, Oregano</span> </div>
-              <!-- Pizza Price -->
-              <div class="pizza-price">$9.00</div>
-            </div>
-          </li>
-        </ul>
+            <li> <!--ngfor -->
+              <!-- Pizza Image -->
+              <div class="media-left">
+                <div class="menu-img"> <img [src]="menu1" alt=""> </div>
+              </div>
+              <!-- Pizza Tittles -->
+              
+              <div class="media-body">
+                <div class="menu-tittle">
+                  <h5>{{item.idPizza}}. {{item.nombre}}</h5>
+                  <span>Cheese, Tomato Sauce, Garlic, Oregano</span> </div>
+                <!-- Pizza Price -->
+                <div class="pizza-price">${{item.precio}}</div>
+              </div>
+            </li>
+          </ul>
+        </div>
       </div>
     </section>
 
