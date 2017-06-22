@@ -40,6 +40,10 @@ export class AbmPizzasComponent implements OnInit {
   // fecIngreso;
   listaPizzas : Array<any>;
   pizza : Array<any>;
+
+  //Ultimo id para firebase
+  ultimoId:string;
+  idM :number = 0;
   
 
   //Filtro
@@ -57,13 +61,28 @@ export class AbmPizzasComponent implements OnInit {
     public isModalModif:boolean = false;
      
 
-     usuariosList:  FirebaseListObservable<any>;
+     pizzaListFire:  FirebaseListObservable<any>;
+     pizzaObjectFire: FirebaseObjectObservable<any>;
   
 
-  constructor( public datosApiPizza : PizzaService, db: AngularFireDatabase ) {
+  constructor( public datosApiPizza : PizzaService, public db: AngularFireDatabase ) {
         //Trae Lista de Firebase
-        // this.pizzasList = db.list('/pizza');
-        // console.log(this.pizzasList);
+        this.pizzaListFire = db.list('/pizza');
+        console.log(this.pizzaListFire);
+        
+
+        //Traer ultimo id para guardar en firebase
+        this.datosApiPizza.TraerUltimoIdPizza()
+        .then(datos => {
+
+          this.ultimoId = datos[0]["idPizza"];
+          console.log("Aca lta:" + datos[0]["idPizza"]);
+             
+        }).catch( error => {
+          console.log(error);
+        });
+
+        
    }
 
   ngOnInit() {
@@ -95,6 +114,19 @@ export class AbmPizzasComponent implements OnInit {
 
               this.datosApiPizza.AgregarPizza(pizza);
 
+              //Agrego a Firebase
+              if(this.idM == 0)
+                this.idM = parseInt(this.ultimoId);
+
+              this.pizzaListFire.push({
+                idPizza: this.idM += 1,
+                nombre: this.nombre,
+                precio: this.precio,
+                descuento: this.descuento,
+                estado: "Alta",
+                foto: this.foto
+              });
+
               this.showModal();
               this.titulo = "Alta!!";
               this.leyenda = "Se ingreso correctamente la Pizza!!";
@@ -124,11 +156,72 @@ export class AbmPizzasComponent implements OnInit {
               pizza.nombre = this.nombre;
               pizza.precio = this.precio;
               pizza.descuento = this.descuento;
-              pizza.foto = pizza.foto;
-              //pizza.estado = "Alta";
+              pizza.foto = this.foto;
+              pizza.estado = "Alta";
 
               console.log("El numero es:" + this.idPizza);
               this.datosApiPizza.ActualizaPizza(this.idPizza, pizza);
+
+              //Actualizo en Firebase
+              
+              try {
+                var ref : any;
+
+               this.pizzaListFire.subscribe(valor => { valor.forEach(v =>{
+                  if(v.idPizza == this.idPizza)
+                  {
+                    ref = v.$key;
+                    console.info("v.nombre" + v.$key);
+                    
+                    console.info("v.nombre1" + v.idPizza);
+                  }
+                })
+
+              });
+              
+              var temp=this;
+              setTimeout(function(){
+                  temp.pizzaListFire.update(ref, {
+                    nombre: temp.nombre,
+                    precio: temp.precio,
+                    descuento: temp.descuento,
+                    foto: temp.foto
+                  })
+              }, 500); 
+
+                //ref = this.db.database.ref("/pizza").orderByChild("idPizza").equalTo(this.idPizza);
+                
+                //this.pizzaListFire.$ref.orderByChild("idPizza").equalTo(this.idPizza.toString()));
+                // this.db.object('/pizza/' + pizza.idPizza).$ref.transaction(currentvalue=> {
+                //   console.log("Aquie "+ currentvalue);
+                //     if(currentvalue !== null){
+                //       return  {
+                    
+                //         nombre: this.nombre,
+                //         precio: this.precio,
+                //         descuento: this.descuento,
+                //         estado: this.estado,
+                //         foto: this.foto
+                //       };
+                  
+                //     }else{
+                //       console.log('NO se pudo');
+                //       return Promise.reject(Error('No existe el id'))
+                //     }
+                //   })
+                //   .then( result => {
+                //     // Good to go, user does not exist
+                //     if (result.committed) {
+                //         // TODO: Take additional action
+                //     }
+                //   })
+                //   .catch( error => {
+                //     // handle error
+                //   });
+  
+              } catch (error) {
+                
+              } 
 
               this.showModal2();
               this.titulo = "Modifica!!";
@@ -151,7 +244,31 @@ export class AbmPizzasComponent implements OnInit {
 
     //Baja de Usuario
     BtnBajaPizza(){
+      //Web Service
       this.datosApiPizza.BorraPizza(this.idPizza);
+
+      //Firebase
+      var ref : any;
+
+      this.pizzaListFire.subscribe(valor => { valor.forEach(v =>{
+          if(v.idPizza == this.idPizza)
+          {
+            ref = v.$key;
+            console.info("v.nombre" + v.$key);
+            
+            console.info("v.nombre1" + v.idPizza);
+          }
+        })
+
+      });
+      
+      var temp=this;
+      setTimeout(function(){
+          temp.pizzaListFire.update(ref, {
+            estado: "Baja"
+          })
+      }, 500); 
+
       this.onHidden3();
       var temp=this;
       setTimeout(function(){
@@ -216,8 +333,8 @@ export class AbmPizzasComponent implements OnInit {
       if(this.precio == 0)
           return false;
       
-      if(this.descuento == 0)
-          return false;
+      // if(this.descuento == 0)
+      //     return false;
 
       if(this.foto == "")
           return false;
@@ -302,6 +419,8 @@ export class AbmPizzasComponent implements OnInit {
         });
         
       }
+      
+      
     }
 
 

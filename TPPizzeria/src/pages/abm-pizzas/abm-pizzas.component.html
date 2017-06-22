@@ -29,6 +29,7 @@
 				</a>
 			
 		</div>
+    <div style="overflow:scroll; height:430px">
 		<table *ngIf="vistaPizza=='Grilla'" class="listado">
 			<thead>
 				<tr>
@@ -45,20 +46,21 @@
           <td>{{item.nombre}}</td>
 					<td>{{item.precio}}</td>
 					<td >{{item.descuento}}</td>
-					<td style="width: 30px" class="icono1"><a (click)="ModificarPizza(item.id)"><span class="fa glyphicon glyphicon-pencil fa-2x" style="font-size:30px;"></span></a></td>	
-					<td style="width: 30px" class="icono2"><a (click)="BorrarPizza(item.id)"><span class="fa glyphicon glyphicon-trash fa-2x" style="font-size:30px;"></span></a></td>			
+					<td style="width: 30px" class="icono1"><a (click)="ModificarPizza(item.idPizza)"><span class="fa glyphicon glyphicon-pencil fa-2x" style="font-size:30px;"></span></a></td>	
+					<td style="width: 30px" class="icono2"><a (click)="BorrarPizza(item.idPizza)"><span class="fa glyphicon glyphicon-trash fa-2x" style="font-size:30px;"></span></a></td>			
 				</tr>
         <tr *ngIf="item.estado!='Alta'" >
           <td ><img src="./assets/fotos/{{item.foto}}" style=" width:40px; height:40px;"> </td>
           <td>{{item.descripcion}}</td>
 					<td>{{item.precio}}</td>
 					<td >{{item.descuento}}</td>
-					<td class="icono1" ><a (click)="ModificarPizza(item.id)"><span class="fa glyphicon glyphicon-pencil fa-2x" style="font-size:30px;"></span></a></td>	
-					<td class="icono2" ><a (click)="BorrarPizza(item.id)"><span class="fa glyphicon glyphicon-trash fa-2x" style="font-size:30px;"></span></a></td>	
+					<td class="icono1" ><a (click)="ModificarPizza(item.idPizza)"><span class="fa glyphicon glyphicon-pencil fa-2x" style="font-size:30px;"></span></a></td>	
+					<td class="icono2" ><a (click)="BorrarPizza(item.idPizza)"><span class="fa glyphicon glyphicon-trash fa-2x" style="font-size:30px;"></span></a></td>	
 				</tr>
 				
 			</tbody>
 		</table>
+    </div>
 </body>
 
 <div *ngIf="vistaPizza=='Agregar'">
@@ -102,7 +104,7 @@
 <!--Modal de Modificacion-->
 <div *ngIf="isModalModif" [config]="{ show: true }" (onHidden)="ocultaModif()" class="modal fade" bsModal #modifUser="bs-modal" tabindex="-1" role="dialog" aria-hidden="true">
     <!--Alta Uusarios-->
-  <div style="background:lightgray; padding:10px;" class="modal-dialog modal-lg">
+  <div style="background:lightgray; padding:10px;" class="modal-dialog modal-sm2">
     <div class="modal-content">      
       <button type="button" class="close pull-right" aria-label="Close" (click)="cierraModal()">
         <span aria-hidden="true">&times;</span>
@@ -127,8 +129,10 @@
             <label for="">Descuento:</label>
             <input style="width: 250px;	height: 30px;" type="text" [(ngModel)]="descuento" [ngModelOptions]="{standalone: true}" class="form-control" placeholder="Descuento">
           </div>
-          <div class="form-group">
-            <label for="">Foto:</label>
+        </form>
+        <form class="form-inline" action="/action_page.php">
+        <div class="form-group">
+          <label for="">Foto:</label>
             <input style="width: 250px;	height: 30px;" type="text" [(ngModel)]="foto" [ngModelOptions]="{standalone: true}" class="form-control" placeholder="Foto">
           </div>  
         </form>

@@ -69,7 +69,7 @@ export class PizzaService {
 
   TraerUnaPizza(id: number)
   {
-    let url = "http://localhost:8080/AppiPizza/public/index.php/pizzaa/id/" + id;    
+    let url = "http://localhost:8080/AppiPizza/public/index.php/pizza/id/" + id;    
     return this.http
       .get(url)
       .toPromise()
@@ -99,5 +99,14 @@ export class PizzaService {
              .catch(this.ErrorExtraerDatos)
   }
 
+  TraerUltimoIdPizza()
+  {
+    let url = "http://localhost:8080/AppiPizza/public/index.php/pizza/idMax/";    
+    return this.http
+      .get(url)
+      .toPromise()
+      .then(this.ExtraerDatos)
+      .catch(this.ErrorExtraerDatos);
+  }
   
 }

@@ -116,6 +116,23 @@ export class UsuarioService {
              .catch(this.ErrorExtraerDatos)
   }
 
+  AltaUsuario(id:number, usuario: Usuario) 
+  { 
+    
+     let datos={
+      estado : usuario.estado };
+            
+            console.log(datos);
+            console.log(" LLego Usuario Put");
+      
+      let url = "http://localhost:8080/AppiPizza/public/index.php/usuario/alta/" + id;
+      this.http
+             .put(url , datos)
+             .toPromise()
+             .then()
+             .catch(this.ErrorExtraerDatos)
+  }
+
   // //Registrar Cliente
   // RegistrarCliente(usuario: Usuario) 
   // { 

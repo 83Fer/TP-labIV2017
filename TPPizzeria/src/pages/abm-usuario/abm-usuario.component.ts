@@ -183,9 +183,43 @@ export class AbmUsuarioComponent implements OnInit {
       this.idUsuario = id;
       this.showModal3();
       this.titulo = "Atencion!!";
-      this.leyenda = "Esta seguro que desea dar de baja al usuario !!";
+      this.leyenda = "Esta seguro que desea dar de Baja al usuario !!";
     }
 
+    //Alta de Usuario Modal
+    AltaUsuario(id:number){
+      this.idUsuario = id;
+      this.showModal3();
+      this.titulo = "Atencion!!";
+      this.leyenda = "Esta seguro que desea dar de Alta al usuario !!";
+    }
+
+    //Alta de Uusario
+    BtnAltaUsuario(){
+      try {
+              var usuario : Usuario = new Usuario();
+
+              usuario.estado = "Alta";
+
+              console.log("El numero es:" + this.idUsuario);
+              this.datosApiUsuario.AltaUsuario(this.idUsuario, usuario);
+
+              this.showModal2();
+              this.titulo = "Alta de Usuario!!";
+              this.leyenda = "Se actualizo correctamente el Usuario!!";
+              
+              var temp=this;
+              setTimeout(function(){
+                  temp.TraerTodosLosUsuarios();
+              }, 500);  
+              
+      
+        } catch (error) {
+            this.showModal2();
+            this.titulo = "Error!!";
+            this.leyenda = error;
+        }
+    }
     //Trae todos los usuarios
     TraerTodosLosUsuarios(){
         if(this.filtroTipo == "")
