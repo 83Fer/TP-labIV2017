@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 //Firebase
 // import { AngularFireDatabase, FirebaseListObservable, 
 //   FirebaseObjectObservable } from 'angularfire2/database';
-//   import { AngularFireAuth } from 'angularfire2/auth';
+import { AngularFireAuth } from 'angularfire2/auth';
 //   import * as firebase from 'firebase/app';
 //   import { Observable } from "rxjs/Observable";
 
@@ -45,11 +45,18 @@ export class LoginComponent implements OnInit {
   
   usuario : Array<any>;
 
+  //Variable global
+  user:any;
+
+  flag: boolean;
+
   // usuariosList: FirebaseListObservable<any>;
   // user: Observable<firebase.User>;
 
 
-  constructor(public datosApiUsuario : UsuarioService, public authService: AuthService) { 
+  constructor(public datosApiUsuario : UsuarioService,
+               public authService: AuthService,
+               public angfire: AngularFireAuth) { 
       
   }
 
@@ -105,16 +112,31 @@ export class LoginComponent implements OnInit {
               
               console.log(usuario);
 
-              this.datosApiUsuario.AgregarUsuario(usuario);
-
-              //Regsitro en Firebase
-              this.authService.Registrarse(this.email, this.clave);
-              this.email = this.clave = '';
-
               
-              this.titulo = "Registrado!!";
-              this.leyenda = "Ustede se ha registrado con exito!!";
-              // this.Refrescar();
+              //Regsitro en Firebase
+              this.authService.Registrarse(usuario);
+
+
+              var temp=this;
+
+              setTimeout(function(){
+                temp.StateUser();
+              }, 500);
+
+              setTimeout(function(){
+                if(temp.flag){
+                  //Agrego a la API
+                  console.log("Agrego a la APi");
+
+                  temp.titulo = "Registrado!!";
+                  temp.leyenda = "Ustede se ha registrado con exito!!";
+                }else{
+                  temp.email = temp.clave = '';
+                  temp.titulo = "Registrado!!";
+                  temp.leyenda = "Ya hay una cuenta registrada con este email!!";                  
+                }
+              }, 800); 
+                  
       
         } catch (error) {
             
@@ -208,5 +230,24 @@ export class LoginComponent implements OnInit {
 
       return fecha;
     }
+
+    StateUser(){
+
+         this.angfire.authState.subscribe(user => {
+          if(user.email == this.email) {
+            // user logged in
+            this.user = user;
+            console.log(user.email);
+            this.flag = true;
+          }
+          else {
+            // user not logged in
+            this.user = {};
+            console.log(user.email + " " + this.email);
+            this.flag = false;
+          }
+        });
+
+  }
 
 }
